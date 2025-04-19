@@ -1,0 +1,219 @@
+import BuildingsIcon from "@/components/icons/buildings-icon";
+import CargoMarineIcon from "@/components/icons/cargo-marine-icon";
+import CargoVanIcon from "@/components/icons/cargo-van-icon";
+import LeafIcon from "@/components/icons/leaf-icon";
+import MoneyBagIcon from "@/components/icons/money-bag-icon";
+import TimeScheduleIcon from "@/components/icons/time-schedule-icon";
+import ToolsIcon from "@/components/icons/tools-icon";
+import Avatar1 from "@/public/images/jpgs/avatar-1.jpg";
+import Avatar2 from "@/public/images/jpgs/avatar-2.jpg";
+import Avatar3 from "@/public/images/jpgs/avatar-3.jpg";
+import Avatar4 from "@/public/images/jpgs/avatar-4.jpg";
+import Avatar5 from "@/public/images/jpgs/avatar-5.jpg";
+import BugawinLogo from "@/public/images/webps/bugawin-logo.webp";
+import CargoOfficers from "@/public/images/webps/cargo-officers.webp";
+import FaanLogo from "@/public/images/webps/faan-logo.webp";
+import FacilityManagement from "@/public/images/webps/facility-management.webp";
+import FreightOfficers from "@/public/images/webps/freight-officers.webp";
+import MaxCapitalLogo from "@/public/images/webps/max-capital-logo.webp";
+import SaintEdwardsLogo from "@/public/images/webps/st-edwards-logo.webp";
+import { Mail, MapPin, Phone } from "lucide-react";
+
+export const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" },
+] as const;
+
+export const listingsLinks = [
+    { name: "Jobs", href: "/jobs" },
+    { name: "Properties", href: "/properties" },
+] as const;
+
+export const ourServices = [
+    {
+        name: "Facility & Property\n Management",
+        description: "Proactive maintenance strategies that ensure your space remains safe, functional, and welcoming.",
+        Icon: BuildingsIcon,
+        image: FacilityManagement,
+    },
+    {
+        name: "Export & Cargo\n Inspection Services",
+        description: "Thorough inspection protocols that guarantee your shipments meet global standards.",
+        Icon: CargoVanIcon,
+        image: CargoOfficers,
+    },
+    {
+        name: "Freight & Marine\n Solutions",
+        description: "Efficient logistics support that ensures seamless movement of goods across Nigeria and beyond.",
+        Icon: CargoMarineIcon,
+        image: FreightOfficers,
+    },
+] as const;
+
+export const whoWeAreServices = [
+    {
+        name: "Building Maintenance",
+        description: "Expert maintenance services to preserve the integrity of your buildings.",
+    },
+    {
+        name: "Security & Surveillance",
+        description: "Advanced security solutions for a safe and protected environment.",
+    },
+    {
+        name: "Cleaning & Janitorial Services",
+        description: "Impeccable cleaning services tailored to commercial and residential needs.",
+    },
+    {
+        name: "Energy & Waste Management",
+        description: "Sustainable solutions to optimize resource usage and minimize waste.",
+    },
+    {
+        name: "Space Planning & Optimization",
+        description: "Maximizing efficiency and productivity through expert space management.",
+    },
+] as const;
+
+export const whyChooseUs = [
+    {
+        name: "Expert-Led Facility Management",
+        description:
+            "Our team of highly trained professionals ensures that every aspect of your facility runs smoothly, from maintenance to space optimization.",
+        Icon: BuildingsIcon,
+        image: FacilityManagement,
+    },
+    {
+        name: "24/7 Operational Reliability",
+        description:
+            "We provide round-the-clock support and rapid response services to handle any facility emergencies efficiently.",
+        Icon: TimeScheduleIcon,
+        image: CargoOfficers,
+    },
+    {
+        name: "Cutting-Edge Technology Integration",
+        description:
+            "By leveraging smart building solutions, automated maintenance systems, and IoT-driven monitoring, we keep your facility ahead of the curve.",
+        Icon: ToolsIcon,
+        image: FreightOfficers,
+    },
+    {
+        name: "Sustainability-Driven Solutions",
+        description:
+            "We implement eco-friendly practices that minimize waste, reduce energy consumption, and promote sustainable facility management.",
+        Icon: LeafIcon,
+        image: FacilityManagement,
+    },
+    {
+        name: "Cost-Efficient and Transparent Services",
+        description:
+            "Our cost-effective facility management strategies ensure maximum efficiency while maintaining full transparency in service execution.",
+        Icon: MoneyBagIcon,
+        image: CargoOfficers,
+    },
+];
+
+export const testimonials = [
+    {
+        name: "Reliable and Professional",
+        description:
+            "Row & Harmony Limited has transformed our facility management. Their proactive approach keeps our office running seamlessly. We highly recommend them!",
+        noOfStars: 4,
+        image: Avatar1,
+        role: "Operations Manager",
+        branch: "Leading Corporate Firm",
+    },
+    {
+        name: "Exceptional Service Delivery",
+        description:
+            "From maintenance to security, their team ensures our retail space remains pristine and secure. Their attention to detail is unmatched!",
+        noOfStars: 5,
+        image: Avatar2,
+        role: "Facility Head",
+        branch: "Major Shopping Mall",
+    },
+    {
+        name: "Efficiency at Its Best",
+        description:
+            "Their preventive maintenance approach has significantly reduced downtime in our manufacturing plant. We couldn't ask for a better facility partner.",
+        noOfStars: 4,
+        image: Avatar3,
+        role: "Plant Manager",
+        branch: "Industrial Company",
+    },
+    {
+        name: "A Trusted Partner",
+        description:
+            "Their commitment to excellence and proactive approach to facility management have made them an invaluable partner for our organization.",
+        noOfStars: 5,
+        image: Avatar4,
+        role: "Director of Operations",
+        branch: "Logistics Company",
+    },
+    {
+        name: "Outstanding Facility Management",
+        description:
+            "Row & Harmony Limited has been a game-changer for our facility. Their expertise and dedication are evident in every aspect of their service.",
+        noOfStars: 4,
+        image: Avatar5,
+        role: "Facility Manager",
+        branch: "Corporate Office",
+    },
+];
+
+export const contactDetails = [
+    { name: "phone", label: "+234 123 4567", href: "tel:+2341234567", Icon: Phone },
+    { name: "email", label: "rowandharmony@gmail.com", href: "mailto:rowandharmony@gmail.com", Icon: Mail },
+    { name: "address", label: "123 Harmony St, Lagos, Nigeria", href: "https://www.google.com/maps", Icon: MapPin },
+] as const;
+
+export const ourClients = [
+    { name: "Lagos international Airport — Lagos Nigeria", image: FaanLogo, href: "https://faan.gov.ng/" },
+    { name: "Maxcapital investment limited — Ikoyi Lagos", image: MaxCapitalLogo, href: "https://maxcapinvest.com/" },
+    { name: "Bugawin — Alagbole Akute (Ogun State)", image: BugawinLogo, href: "https://bugawin.com.ng/" },
+    {
+        name: "Saint Edwards Rumford Church Hall — London",
+        image: SaintEdwardsLogo,
+        href: "https://www.stedwardsromford.com/",
+    },
+    { name: "Lagos international Airport — Lagos Nigeria", image: FaanLogo, href: "https://faan.gov.ng/" },
+    { name: "Maxcapital investment limited — Ikoyi Lagos", image: MaxCapitalLogo, href: "https://maxcapinvest.com/" },
+    { name: "Bugawin — Alagbole Akute (Ogun State)", image: BugawinLogo, href: "https://bugawin.com.ng/" },
+    {
+        name: "Saint Edwards Rumford Church Hall — London",
+        image: SaintEdwardsLogo,
+        href: "https://www.stedwardsromford.com/",
+    },
+    { name: "Lagos international Airport — Lagos Nigeria", image: FaanLogo, href: "https://faan.gov.ng/" },
+    { name: "Maxcapital investment limited — Ikoyi Lagos", image: MaxCapitalLogo, href: "https://maxcapinvest.com/" },
+    { name: "Bugawin — Alagbole Akute (Ogun State)", image: BugawinLogo, href: "https://bugawin.com.ng/" },
+    {
+        name: "Saint Edwards Rumford Church Hall — London",
+        image: SaintEdwardsLogo,
+        href: "https://www.stedwardsromford.com/",
+    },
+    { name: "Lagos international Airport — Lagos Nigeria", image: FaanLogo, href: "https://faan.gov.ng/" },
+    { name: "Maxcapital investment limited — Ikoyi Lagos", image: MaxCapitalLogo, href: "https://maxcapinvest.com/" },
+    { name: "Bugawin — Alagbole Akute (Ogun State)", image: BugawinLogo, href: "https://bugawin.com.ng/" },
+    {
+        name: "Saint Edwards Rumford Church Hall — London",
+        image: SaintEdwardsLogo,
+        href: "https://www.stedwardsromford.com/",
+    },
+    { name: "Lagos international Airport — Lagos Nigeria", image: FaanLogo, href: "https://faan.gov.ng/" },
+    { name: "Maxcapital investment limited — Ikoyi Lagos", image: MaxCapitalLogo, href: "https://maxcapinvest.com/" },
+    { name: "Bugawin — Alagbole Akute (Ogun State)", image: BugawinLogo, href: "https://bugawin.com.ng/" },
+    {
+        name: "Saint Edwards Rumford Church Hall — London",
+        image: SaintEdwardsLogo,
+        href: "https://www.stedwardsromford.com/",
+    },
+    { name: "Lagos international Airport — Lagos Nigeria", image: FaanLogo, href: "https://faan.gov.ng/" },
+    { name: "Maxcapital investment limited — Ikoyi Lagos", image: MaxCapitalLogo, href: "https://maxcapinvest.com/" },
+    { name: "Bugawin — Alagbole Akute (Ogun State)", image: BugawinLogo, href: "https://bugawin.com.ng/" },
+    {
+        name: "Saint Edwards Rumford Church Hall — London",
+        image: SaintEdwardsLogo,
+        href: "https://www.stedwardsromford.com/",
+    },
+];

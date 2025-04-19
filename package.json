@@ -1,0 +1,24 @@
+{
+    "name": "row-and-harmony-org",
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "description": "Row and Harmony Organization",
+    "keywords": [
+        "Row & Harmony",
+        "Row & Harmony Organization",
+        "Next.js",
+        "Sanity",
+        "React",
+        "Tailwind CSS"
+    ],
+    "private": true,
+    "type": "module",
+    "workspaces": [
+        "row-and-harmony",
+        "row-and-harmony-admin-panel"
+    ]
+}
