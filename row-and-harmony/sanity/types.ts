@@ -112,7 +112,7 @@ export type Property = {
     }>;
   };
   location?: string;
-  conntactInfo?: {
+  contactInfo?: {
     name?: string;
     email?: string;
     phone?: string;
@@ -236,7 +236,7 @@ export type GetPropertiesQueryResult = Array<{
     }>;
   };
   location?: string;
-  conntactInfo?: {
+  contactInfo?: {
     name?: string;
     email?: string;
     phone?: string;
@@ -244,57 +244,28 @@ export type GetPropertiesQueryResult = Array<{
   };
 }>;
 // Variable: getJobsQuery
-// Query: *[_type == 'property'] | order(datePosted)
+// Query: *[_type == 'job'] | order(datePosted)
 export type GetJobsQueryResult = Array<{
   _id: string;
-  _type: "property";
+  _type: "job";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  type?: "lease" | "sale";
-  price?: number;
+  role?: string;
   description?: string;
-  images?: {
-    display?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
-    showcase?: Array<{
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "showcaseImage";
-      _key: string;
-    }>;
-  };
+  department?: string;
+  salary?: number;
   location?: string;
-  conntactInfo?: {
-    name?: string;
-    email?: string;
-    phone?: string;
-    datePosted?: string;
-  };
+  type?: "contract" | "full-time" | "internship" | "part-time";
+  applicationLink?: string;
+  datePosted?: string;
 }>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == 'property'] | order(datePosted)": GetPropertiesQueryResult | GetJobsQueryResult;
+    "*[_type == 'property'] | order(datePosted)": GetPropertiesQueryResult;
+    "*[_type == 'job'] | order(datePosted)": GetJobsQueryResult;
   }
 }

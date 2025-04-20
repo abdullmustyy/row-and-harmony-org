@@ -17,7 +17,7 @@ const Navbar = () => {
     const pathname = usePathname();
 
     return (
-        <nav className="bg-background fixed top-0 inset-x-0 flex justify-between items-center py-2 md:px-8 px-4 z-10">
+        <nav className="bg-background fixed top-0 inset-x-0 flex justify-between items-center h-nav md:px-8 px-4 z-10">
             <Link href="/">
                 <Image src={Logo} alt="Row & Harmony Logo" className="w-62.5 h-15 object-cover" />
             </Link>

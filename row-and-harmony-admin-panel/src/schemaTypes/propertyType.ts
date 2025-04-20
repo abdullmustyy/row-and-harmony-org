@@ -10,6 +10,7 @@ export const propertyType = defineType({
         defineField({
             name: "title",
             type: "string",
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "type",
@@ -21,20 +22,23 @@ export const propertyType = defineType({
                 ],
                 layout: "radio",
             },
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "price",
             type: "number",
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "description",
             type: "text",
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "images",
             type: "object",
             fields: [
-                defineField({ name: "display", type: "image" }),
+                defineField({ name: "display", type: "image", validation: (rule) => rule.required() }),
                 defineField({
                     name: "showcase",
                     type: "array",
@@ -50,9 +54,10 @@ export const propertyType = defineType({
         defineField({
             name: "location",
             type: "string",
+            validation: (rule) => rule.required(),
         }),
         defineField({
-            name: "conntactInfo",
+            name: "contactInfo",
             type: "object",
             fields: [
                 defineField({

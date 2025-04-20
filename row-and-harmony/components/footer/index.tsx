@@ -43,7 +43,7 @@ const Footer = ({ className }: IFooterProps) => {
         <footer className={cn("bg-primary text-background md:px-8 px-4", className)}>
             <div className="py-[calc(10vh+5rem)] grid lg:grid-cols-[2fr_1fr_1.5fr] lg:gap-0 gap-8">
                 <div className="flex flex-col gap-y-12">
-                    <Link href="/">
+                    <Link href="/" className="w-fit">
                         <Image src={LogoWhite} alt="Row & Harmony Logo" className="w-62.5 h-15 object-cover" />
                     </Link>
                     <ul className="flex flex-col gap-y-2">

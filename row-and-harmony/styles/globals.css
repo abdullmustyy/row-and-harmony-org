@@ -112,6 +112,8 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
+  --spacing-nav: calc(var(--spacing) * 19);
+
   --text-fluid-xs: var(--fluid--2);
   --text-fluid-xs--line-height: 1rem;
   --text-fluid-sm: var(--fluid--1);

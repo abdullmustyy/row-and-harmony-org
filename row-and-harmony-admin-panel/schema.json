@@ -596,7 +596,7 @@
         },
         "optional": true
       },
-      "conntactInfo": {
+      "contactInfo": {
         "type": "objectAttribute",
         "value": {
           "type": "object",

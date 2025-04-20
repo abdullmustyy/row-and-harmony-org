@@ -1,4 +1,6 @@
-import UnderConstruction from "@/components/under-construction";
+import PropertiesPage from "@/components/pages/listings/properties";
+import { sanityFetch } from "@/sanity/lib/live";
+import { getPropertiesQuery } from "@/sanity/lib/queries";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,8 +14,10 @@ export const metadata: Metadata = {
     },
 };
 
-const Properties = () => {
-    return <UnderConstruction />;
+const Properties = async () => {
+    const { data: properties } = await sanityFetch({ query: getPropertiesQuery });
+
+    return <PropertiesPage {...{ properties }} />;
 };
 
 export default Properties;

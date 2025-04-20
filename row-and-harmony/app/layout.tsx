@@ -1,6 +1,7 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import AppProviders from "@/providers";
+import { SanityLive } from "@/sanity/lib/live";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { bricolageGrotesque, recursive } from "./fonts";
@@ -63,6 +64,7 @@ export default function RootLayout({
         <html lang="en" className={`${recursive.variable} ${bricolageGrotesque.variable} hide-scrollbar`}>
             <body className="min-h-screen flex flex-col font-base select-none antialiased">
                 <AppProviders>
+                    <SanityLive />
                     <Navbar />
                     {children}
                     <Footer className="mt-auto" />

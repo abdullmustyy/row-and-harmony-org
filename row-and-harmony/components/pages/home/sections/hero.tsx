@@ -6,7 +6,7 @@ import Link from "next/link";
 const Hero = () => {
     return (
         <section className="relative md:-mb-[106vh] -mb-[110vh]">
-            <div className="sticky top-0 flex items-center min-h-screen w-full px-8">
+            <div className="sticky top-0 flex items-center min-h-screen w-full md:px-16 px-8">
                 <div className="text-background space-y-8">
                     <div className="space-y-2 ">
                         <h1 className="text-fluid-5xl font-primary font-semibold">
