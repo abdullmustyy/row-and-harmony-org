@@ -1,5 +1,5 @@
+import { capitalize, formatPriceNaira } from "@repo/lib/utils";
 import { defineField, defineType } from "sanity";
-import { capitalize } from "../lib/utils";
 
 export const propertyType = defineType({
     name: "property",
@@ -88,12 +88,7 @@ export const propertyType = defineType({
             price: "price",
         },
         prepare: ({ title, type, media, price }) => {
-            const formattedPrice = price
-                ? new Intl.NumberFormat("en-NG", {
-                      style: "currency",
-                      currency: "NGN",
-                  }).format(price)
-                : undefined;
+            const formattedPrice = price ? formatPriceNaira(price) : undefined;
             const subtitle = type && formattedPrice ? `${capitalize(type)} - ${formattedPrice}` : undefined;
 
             return {

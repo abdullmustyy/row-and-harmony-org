@@ -1,12 +1,13 @@
 {
     "name": "row-and-harmony-org",
-    "devDependencies": {
-        "@types/bun": "latest"
-    },
-    "peerDependencies": {
-        "typescript": "^5"
-    },
     "description": "Row and Harmony Organization",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "turbo run build",
+        "dev": "turbo run dev",
+        "lint": "turbo run lint"
+    },
     "keywords": [
         "Row & Harmony",
         "Row & Harmony Organization",
@@ -15,10 +16,14 @@
         "React",
         "Tailwind CSS"
     ],
-    "private": true,
-    "type": "module",
     "workspaces": [
         "row-and-harmony",
-        "row-and-harmony-admin-panel"
-    ]
+        "row-and-harmony-admin-panel",
+        "packages/*"
+    ],
+    "devDependencies": {
+        "@types/bun": "latest",
+        "turbo": "^2.5.0"
+    },
+    "packageManager": "bun@1.2.10"
 }

@@ -9,9 +9,11 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "typegen": "sanity typegen generate"
+        "typegen": "sanity typegen generate",
+        "check-types": "tsc --noEmit"
     },
     "dependencies": {
+        "@repo/lib": "workspace:*",
         "@hookform/resolvers": "^5.0.1",
         "@radix-ui/react-collapsible": "^1.1.4",
         "@radix-ui/react-hover-card": "^1.1.7",

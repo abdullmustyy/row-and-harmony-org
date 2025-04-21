@@ -243,6 +243,53 @@ export type GetPropertiesQueryResult = Array<{
     datePosted?: string;
   };
 }>;
+// Variable: getPropertyByIdQuery
+// Query: *[_type == 'property' && _id == $id]
+export type GetPropertyByIdQueryResult = Array<{
+  _id: string;
+  _type: "property";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  type?: "lease" | "sale";
+  price?: number;
+  description?: string;
+  images?: {
+    display?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    showcase?: Array<{
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "showcaseImage";
+      _key: string;
+    }>;
+  };
+  location?: string;
+  contactInfo?: {
+    name?: string;
+    email?: string;
+    phone?: string;
+    datePosted?: string;
+  };
+}>;
 // Variable: getJobsQuery
 // Query: *[_type == 'job'] | order(datePosted)
 export type GetJobsQueryResult = Array<{
@@ -266,6 +313,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == 'property'] | order(datePosted)": GetPropertiesQueryResult;
+    "*[_type == 'property' && _id == $id]": GetPropertyByIdQueryResult;
     "*[_type == 'job'] | order(datePosted)": GetJobsQueryResult;
   }
 }
