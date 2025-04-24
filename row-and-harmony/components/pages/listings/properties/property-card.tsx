@@ -20,8 +20,8 @@ const PropertyCard = ({ className, children, property: { _id, location, price, t
                         <span>{location}</span>
                     </div>
                     <div className="flex items-center justify-between mt-1">
-                        <span className="font-medium">{formatPriceNaira(price!)}</span>
-                        <span>{capitalize(type!)}</span>
+                        <span className="font-semibold">{formatPriceNaira(price!)}</span>
+                        <span className="font-medium">{capitalize(type!)}</span>
                     </div>
                 </div>
             </Link>

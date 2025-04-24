@@ -13,13 +13,18 @@ interface IPropertyPageProps extends Omit<React.ComponentProps<"main">, "propert
 
 const PropertyPage = ({ property }: IPropertyPageProps) => {
     const displayImage = useMemo(
-        () => (property.images?.display ? urlFor(property.images.display).url() : ""),
+        () =>
+            property.images?.display
+                ? { src: urlFor(property.images.display).url(), blur: urlFor(property.images.display).blur(50).url() }
+                : { src: "", blur: "" },
         [property.images?.display],
     );
     const showcaseImages = useMemo(
         () =>
             property.images?.showcase
-                ? property.images.showcase.slice(0, 4).map((showcase) => urlFor(showcase).url())
+                ? property.images.showcase
+                      .slice(0, 4)
+                      .map((showcase) => ({ src: urlFor(showcase).url(), blur: urlFor(showcase).blur(50).url() }))
                 : [],
         [property.images?.showcase],
     );
@@ -38,20 +43,31 @@ const PropertyPage = ({ property }: IPropertyPageProps) => {
                     </Button>
                 </div>
 
-                <div className="mt-6 mb-8 grid grid-cols-5 grid-rows-2 gap-4 items-stretch h-100">
-                    <div className="col-span-3 row-span-2">
+                <div className="mt-6 mb-8 grid grid-cols-[2.3fr_1fr_1fr] grid-rows-2 gap-4 items-stretch h-100">
+                    <div className="row-span-2">
                         <Image
-                            src={displayImage}
+                            src={displayImage.src}
                             alt=""
-                            width={718.4}
+                            width={629.019}
                             height={400}
+                            placeholder="blur"
+                            blurDataURL={displayImage.blur}
                             priority
                             className="size-full object-cover"
                         />
                     </div>
-                    {showcaseImages.map((src, index) => (
+                    {showcaseImages.map(({ src, blur }, index) => (
                         <div key={src + index}>
-                            <Image src={src} alt="" width={228.8} height={192} className="size-full object-cover" />
+                            <Image
+                                src={src}
+                                alt=""
+                                width={273.487}
+                                height={192}
+                                placeholder="blur"
+                                blurDataURL={blur}
+                                priority
+                                className="size-full object-cover"
+                            />
                         </div>
                     ))}
                 </div>
