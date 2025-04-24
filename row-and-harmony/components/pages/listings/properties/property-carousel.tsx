@@ -60,15 +60,13 @@ const PropertyCarousel = ({ property }: IPropertyCarousel) => {
                     style={{ translate: `-${containerSize * curr}px` }}
                 >
                     {slides.map((slide, index) => (
-                        <div key={slide + index} className="aspect-square">
+                        <div key={slide + index} className="aspect-square shrink-0 relative">
                             <Image
                                 src={slide}
                                 alt={property.title!}
-                                width={containerSize ?? 284}
-                                height={containerSize ?? 284}
-                                sizes="100vw"
+                                fill
                                 priority
-                                className="aspect-square object-cover"
+                                className="object-cover"
                             />
                         </div>
                     ))}

@@ -10,7 +10,7 @@ interface IPropertyCardProps extends Omit<React.ComponentProps<"div">, "property
 
 const PropertyCard = ({ className, children, property: { _id, location, price, title, type } }: IPropertyCardProps) => {
     return (
-        <div className={cn("flex flex-col size-fit", className)}>
+        <div className={cn("flex flex-col", className)}>
             {children}
             <Link href={`/properties/${_id}`} className="group">
                 <div className="pt-3">
