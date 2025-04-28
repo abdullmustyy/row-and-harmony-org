@@ -13,16 +13,17 @@
         "check-types": "tsc --noEmit"
     },
     "dependencies": {
-        "@repo/lib": "workspace:*",
         "@hookform/resolvers": "^5.0.1",
         "@radix-ui/react-collapsible": "^1.1.4",
         "@radix-ui/react-hover-card": "^1.1.7",
         "@radix-ui/react-label": "^2.1.2",
         "@radix-ui/react-slot": "^1.1.2",
+        "@repo/lib": "workspace:*",
         "@sanity/image-url": "^1.1.0",
         "@sanity/vision": "3",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
+        "date-fns": "^4.1.0",
         "embla-carousel-autoplay": "^8.5.2",
         "embla-carousel-react": "^8.5.2",
         "lenis": "^1.2.3",

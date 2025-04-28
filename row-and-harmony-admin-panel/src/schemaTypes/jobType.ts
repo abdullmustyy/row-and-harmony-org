@@ -13,10 +13,21 @@ export const jobType = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name: "description",
-            type: "array",
-            of: [defineField({ name: "descriptionBlock", type: "block" })],
-            validation: (rule) => rule.required(),
+            name: "jobDetails",
+            type: "object",
+            fields: [
+                defineField({
+                    name: "jobSummary",
+                    type: "text",
+                    validation: (rule) => rule.required(),
+                }),
+                defineField({
+                    name: "jobDescription",
+                    type: "array",
+                    of: [{ type: "block" }],
+                    validation: (rule) => rule.required(),
+                }),
+            ],
         }),
         defineField({
             name: "department",

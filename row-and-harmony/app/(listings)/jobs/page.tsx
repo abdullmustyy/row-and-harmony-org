@@ -1,4 +1,6 @@
 import JobsPage from "@/components/pages/listings/jobs";
+import { sanityFetch } from "@/sanity/lib/live";
+import { getJobsQuery } from "@/sanity/lib/queries";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,8 +13,10 @@ export const metadata: Metadata = {
     },
 };
 
-const Jobs = () => {
-    return <JobsPage />;
+const Jobs = async () => {
+    const { data: jobs } = await sanityFetch({ query: getJobsQuery });
+
+    return <JobsPage {...{ jobs }} />;
 };
 
 export default Jobs;
