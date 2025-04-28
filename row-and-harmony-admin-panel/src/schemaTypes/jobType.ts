@@ -1,3 +1,4 @@
+import { capitalize, formatPriceNaira } from "@repo/lib/utils";
 import { defineField, defineType } from "sanity";
 
 export const jobType = defineType({
@@ -9,22 +10,28 @@ export const jobType = defineType({
         defineField({
             name: "role",
             type: "string",
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "description",
-            type: "text",
+            type: "array",
+            of: [defineField({ name: "descriptionBlock", type: "block" })],
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "department",
             type: "string",
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "salary",
             type: "number",
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "location",
             type: "string",
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "type",
@@ -38,10 +45,15 @@ export const jobType = defineType({
                 ],
                 layout: "radio",
             },
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "applicationLink",
             type: "url",
+            validation: (Rule) =>
+                Rule.uri({
+                    scheme: ["http", "https", "mailto", "tel"],
+                }).required(),
         }),
         defineField({
             name: "datePosted",
@@ -54,9 +66,11 @@ export const jobType = defineType({
             title: "role",
             department: "department",
             media: "icon",
+            salary: "salary",
         },
-        prepare({ title, department, media }) {
-            const subtitle = department ?? undefined;
+        prepare({ title, department, media, salary }) {
+            const formattedPrice = salary ? formatPriceNaira(salary) : undefined;
+            const subtitle = department && formattedPrice ? `${capitalize(department)} - ${formattedPrice}` : undefined;
 
             return { title, subtitle, media };
         },

@@ -91,11 +91,7 @@ export const propertyType = defineType({
             const formattedPrice = price ? formatPriceNaira(price) : undefined;
             const subtitle = type && formattedPrice ? `${capitalize(type)} - ${formattedPrice}` : undefined;
 
-            return {
-                title,
-                subtitle,
-                media,
-            };
+            return { title, subtitle, media };
         },
     },
 });
