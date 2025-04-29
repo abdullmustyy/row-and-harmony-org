@@ -1,5 +1,6 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import { metadataBaseImage, metadataBaseUrl } from "@/lib/constants";
 import AppProviders from "@/providers";
 import { SanityLive } from "@/sanity/lib/live";
 import "@/styles/globals.css";
@@ -9,11 +10,9 @@ import { bricolageGrotesque, recursive } from "./fonts";
 const title = "Row & Harmony — Facility and Property Management Company LTD";
 const description =
     "ROW & HARMONY is an active player in the Facility management industry in the world with numerous years of experience in the Maintenance business and a robust portfolio of commercial and residential properties being managed by the company. We are committed to providing our client with personalized services.";
-const url = "https://row-and-harmony.vercel.app";
-const image = "/images/webps/logo-opengraph.webp";
 
 export const metadata: Metadata = {
-    metadataBase: new URL(url),
+    metadataBase: new URL(metadataBaseUrl),
     title: {
         default: title,
         template: `%s | ${title}`,
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
         "Maintenance Services",
         "Real Estate",
     ],
-    authors: [{ name: "Row & Harmony", url }],
+    authors: [{ name: "Row & Harmony", url: metadataBaseUrl }],
     creator: "Row & Harmony",
     publisher: "Row & Harmony",
     formatDetection: {
@@ -41,16 +40,16 @@ export const metadata: Metadata = {
     openGraph: {
         title,
         description,
-        url,
+        url: metadataBaseUrl,
         siteName: title,
-        images: [{ url: image }],
+        images: [{ url: metadataBaseImage }],
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
         title,
         description,
-        images: [image],
+        images: [metadataBaseImage],
         creator: "", //! ask for twitter handle
     },
 };

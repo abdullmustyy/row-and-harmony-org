@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { sanityFetch } from "@/sanity/lib/live";
 import { getPropertiesQuery, getPropertyByIdQuery } from "@/sanity/lib/queries";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
     const properties = await client.fetch(getPropertiesQuery);
@@ -10,7 +11,7 @@ export async function generateStaticParams() {
     return properties.map((property) => ({ id: property._id }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const { id } = await params;
     const {
         data: [property],

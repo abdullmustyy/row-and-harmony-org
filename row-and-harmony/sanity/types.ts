@@ -347,6 +347,43 @@ export type GetJobsQueryResult = Array<{
   applicationLink?: string;
   datePosted?: string;
 }>;
+// Variable: getJobByIdQuery
+// Query: *[_type == 'job' && _id == $id]
+export type GetJobByIdQueryResult = Array<{
+  _id: string;
+  _type: "job";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  role?: string;
+  jobDetails?: {
+    jobSummary?: string;
+    jobDescription?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+  };
+  department?: string;
+  salary?: number;
+  location?: string;
+  type?: "contract" | "full-time" | "internship" | "part-time";
+  applicationLink?: string;
+  datePosted?: string;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -355,5 +392,6 @@ declare module "@sanity/client" {
     "*[_type == 'property'] | order(datePosted)": GetPropertiesQueryResult;
     "*[_type == 'property' && _id == $id]": GetPropertyByIdQueryResult;
     "*[_type == 'job'] | order(datePosted)": GetJobsQueryResult;
+    "*[_type == 'job' && _id == $id]": GetJobByIdQueryResult;
   }
 }
