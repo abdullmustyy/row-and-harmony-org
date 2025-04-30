@@ -10,7 +10,7 @@ interface IPropertiesPageProps extends React.ComponentProps<"main"> {
 const PropertiesPage = ({ properties }: IPropertiesPageProps) => {
     return (
         <main className="relative isolate mt-nav">
-            <section className="grid lg:grid-cols-4 md:grid-cols-3 gap-x-6 gap-y-12 justify-items-stretch md:px-8 px-4 py-[5vh]">
+            <section className="grid lg:grid-cols-4 md:grid-cols-3 gap-x-6 gap-y-12 justify-items-stretch md:px-8 px-4 pt-5 pb-[5vh]">
                 {properties.map((property) => (
                     <PropertyCard key={property._id} property={property} className="group">
                         <PropertyCarousel property={property} />

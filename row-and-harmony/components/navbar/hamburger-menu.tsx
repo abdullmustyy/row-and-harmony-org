@@ -71,26 +71,37 @@ const HamburgerMenu = () => {
                                     >
                                         <li className="text-primary">{name}</li>
                                     </Link>
-                                    <Collapsible>
-                                        <CollapsibleTrigger asChild>
-                                            <Button className="size-fit p-0 text-base font-normal bg-transparent hover:bg-transparent shadow-none">
-                                                <span className="text-primary">Listings</span>
-                                            </Button>
-                                        </CollapsibleTrigger>
-                                        {listingsLinks.map(({ name, href }, index) => (
-                                            <CollapsibleContent key={name + index} className="pl-2 pt-2">
-                                                <Link
-                                                    href={href}
-                                                    className={cn("before-hover-transform-link", {
-                                                        "before:transform-[scale(1,1)]": pathname.includes(href),
-                                                    })}
-                                                    onClick={() => setIsHamburgerOpen(false)}
+                                    <li>
+                                        <Collapsible>
+                                            <CollapsibleTrigger asChild>
+                                                <Button
+                                                    className={cn(
+                                                        "size-fit p-0 text-base font-normal bg-transparent hover:bg-transparent shadow-none before-hover-transform-link",
+                                                        {
+                                                            "before:transform-[scale(1,1)]": listingsLinks.some(
+                                                                ({ href }) => pathname.includes(href),
+                                                            ),
+                                                        },
+                                                    )}
                                                 >
-                                                    <span className="text-primary">{name}</span>
-                                                </Link>
-                                            </CollapsibleContent>
-                                        ))}
-                                    </Collapsible>
+                                                    <span className="text-primary">Listings</span>
+                                                </Button>
+                                            </CollapsibleTrigger>
+                                            {listingsLinks.map(({ name, href }, index) => (
+                                                <CollapsibleContent key={name + index} className="pl-2 pt-2">
+                                                    <Link
+                                                        href={href}
+                                                        className={cn("before-hover-transform-link", {
+                                                            "before:transform-[scale(1,1)]": pathname.includes(href),
+                                                        })}
+                                                        onClick={() => setIsHamburgerOpen(false)}
+                                                    >
+                                                        <span className="text-primary">{name}</span>
+                                                    </Link>
+                                                </CollapsibleContent>
+                                            ))}
+                                        </Collapsible>
+                                    </li>
                                 </Fragment>
                             ) : (
                                 <Link
