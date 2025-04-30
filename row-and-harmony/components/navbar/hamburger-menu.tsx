@@ -84,6 +84,7 @@ const HamburgerMenu = () => {
                                                     className={cn("before-hover-transform-link", {
                                                         "before:transform-[scale(1,1)]": pathname.includes(href),
                                                     })}
+                                                    onClick={() => setIsHamburgerOpen(false)}
                                                 >
                                                     <span className="text-primary">{name}</span>
                                                 </Link>

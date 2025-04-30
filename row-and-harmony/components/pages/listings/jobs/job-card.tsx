@@ -16,7 +16,7 @@ const JobCard = ({ className, children, job }: IJobCardProps) => {
                 <div className="*:not-first:mt-3">
                     <p className="text-primary">Row & Harmony LTD</p>
                     <div className="flex flex-wrap items-center gap-2">
-                        <span className="bg-muted px-2 py-1">{job.location}</span>
+                        <span className="bg-muted px-2 py-1 truncate">{job.location}</span>
                         <span className="bg-muted px-2 py-1">{capitalize(job.type!)}</span>
                         <span className="bg-muted px-2 py-1">{formatPriceNaira(job.salary!)}</span>
                     </div>
