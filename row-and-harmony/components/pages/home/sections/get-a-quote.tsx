@@ -15,7 +15,7 @@ const GetAQuote = ({ className }: IGetAQuoteProps) => {
                 Let&apos;s help you take the hassle out of
                 <br className="lg:inline hidden" /> managing your facility
             </h2>
-            <Link href="/contact" className="link-btn h-12 px-8 font-semibold text-background">
+            <Link href="/contact" className="link-btn h-12 px-8 font-semibold text-background shrink-0">
                 <span className="relative whitespace-nowrap">Get a Free Quote</span>
             </Link>
         </div>

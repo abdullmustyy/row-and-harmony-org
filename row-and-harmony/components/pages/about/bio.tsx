@@ -4,13 +4,13 @@ import Image from "next/image";
 
 const Bio = () => {
     return (
-        <section className="md:px-8 px-4 md:py-[10vh] py-[8vh] relative">
-            <div className="flex md:flex-row flex-col-reverse items-start md:gap-16 gap-8">
-                <figure className="md:w-5/12 w-full md:h-150">
+        <section className="md:px-8 px-4 md:pt-[10vh] pt-[8vh] relative">
+            <div className="flex lg:flex-row flex-col-reverse items-start lg:gap-16 gap-8">
+                <figure className="lg:w-5/12 w-full lg:h-150">
                     <Image src={WhoWeAreImg} alt="Who We Are" className="object-cover size-full" />
                 </figure>
 
-                <div className="md:w-7/12 w-full">
+                <div className="lg:w-7/12 w-full">
                     <OutlineLabel label="About" text="— since 2010" />
 
                     <h3 className="text-fluid-lg font-semibold">Company Overview</h3>

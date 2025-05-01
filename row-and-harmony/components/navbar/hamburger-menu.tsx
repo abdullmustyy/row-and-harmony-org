@@ -53,7 +53,7 @@ const HamburgerMenu = () => {
             >
                 <nav className="size-full flex flex-col items-start gap-y-8">
                     <div className="py-2">
-                        <Link href="/">
+                        <Link href="/" onClick={() => setIsHamburgerOpen(false)}>
                             <Image src={Logo} alt="Row & Harmony Logo" className="w-62.5 h-15 object-cover" />
                         </Link>
                     </div>

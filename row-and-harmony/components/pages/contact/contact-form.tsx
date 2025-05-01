@@ -33,9 +33,9 @@ const ContactForm = () => {
 
     return (
         <section className="md:px-8 px-4 md:py-[10vh] py-[8vh] relative">
-            <div className="flex md:flex-row flex-col items-start md:gap-16 gap-8">
-                <div className="md:w-5/12">
-                    <OutlineLabel label="Contact" text="— get in touch" className="md:mb-8 mb-6" />
+            <div className="flex lg:flex-row flex-col items-start lg:gap-16 gap-8">
+                <div className="lg:w-5/12">
+                    <OutlineLabel label="Contact" text="— get in touch" className="lg:mb-8 mb-6" />
                     <p className="mb-3">
                         Whether you&apos;re looking for reliable maintenance, expert cleaning services, security
                         solutions, or a complete facility management plan —{" "}
@@ -45,12 +45,12 @@ const ContactForm = () => {
                         We&apos;re always ready to listen, understand your needs, and provide tailored solutions that
                         keep your property running at its best.
                     </p>
-                    <Socials className="md:mt-12 mt-8" />
+                    <Socials className="lg:mt-12 mt-8" />
                 </div>
-                <div className="md:w-7/12 w-full">
+                <div className="lg:w-7/12 w-full">
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(handleSubmit)} className="w-full space-y-8">
-                            <div className="grid md:grid-cols-2 gap-4">
+                            <div className="grid lg:grid-cols-2 gap-4">
                                 <ControlledFieldWrapper
                                     control={form.control}
                                     name="name"
@@ -99,7 +99,7 @@ const ContactForm = () => {
                                 <ControlledFieldWrapper
                                     control={form.control}
                                     name="message"
-                                    className="md:col-span-2"
+                                    className="lg:col-span-2"
                                     render={({ field }) => (
                                         <Textarea
                                             {...field}

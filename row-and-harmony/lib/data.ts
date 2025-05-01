@@ -229,3 +229,63 @@ export const ourClients = [
         href: "https://www.stedwardsromford.com/",
     },
 ];
+
+export const serviceCenter = [
+    {
+        id: "facility-management",
+        title: "Facility & Property Management",
+        image: FacilityManagement,
+        intro: "We manage buildings like they're our own—with structure, care, and foresight.",
+        outro: "Our team is highly trained, detail-oriented, and committed to exceeding your expectations.",
+        services: [
+            "HVAC, Electrical & Plumbing Maintenance",
+            "Fumigation & Pest Control",
+            "Janitorial, Window & Carpet Cleaning",
+            "CCTV Monitoring & Access Control Systems",
+            "Post-Construction Cleaning",
+            "Building Management & Energy Optimization",
+            "Tenant Liaison & Rent Collection",
+            "Lease Negotiation & Property Oversight",
+            "Waste Management & Environmental Services",
+        ],
+    },
+    {
+        id: "export-inspection",
+        title: "Export & Cargo Inspection",
+        image: CargoOfficers,
+        intro: "We ensure your goods meet international standards and arrive without regulatory setbacks.",
+        outro: "Export with confidence. We ensure every shipment is fully compliant, safe, and ready for global markets.",
+        services: [
+            "Quality Assurance & Pre-shipment Inspection",
+            "Customs Compliance Support",
+            "Health, Safety & Environmental Checks",
+            "Export Documentation & Clearance Assistance",
+        ],
+    },
+    {
+        id: "freight-services",
+        title: "Freight Services",
+        image: FreightOfficers,
+        intro: "We move cargo swiftly, safely, and strategically—by air, sea, or road.",
+        outro: "From Lagos to the world—your cargo is in capable hands.",
+        services: [
+            "Ocean Freight through Major Nigerian Ports",
+            "Time-Sensitive Air Freight Solutions",
+            "Road & Rail Freight within Nigeria and Neighboring Countries",
+            "Custom Freight Planning for High-Value or Perishable Goods",
+        ],
+    },
+    {
+        id: "marine-services",
+        title: "Marine Services",
+        image: FreightOfficers,
+        intro: "Efficient maritime logistics and vessel support—anchored in safety and reliability.",
+        outro: "We keep vessels moving and maritime operations secure and efficient.",
+        services: [
+            "Port Operations: Loading, Unloading, Warehousing",
+            "Ship Maintenance & Maritime Engineering",
+            "Logistics Planning for Maritime Cargo",
+            "Port Safety, Security, and Compliance Protocols",
+        ],
+    },
+];
