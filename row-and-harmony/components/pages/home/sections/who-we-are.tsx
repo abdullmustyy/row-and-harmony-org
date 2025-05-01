@@ -39,11 +39,11 @@ const WhoWeAre = () => {
                             and efficiency. Partner with us to enhance the functionality of your spaces.
                         </p>
                         <div className="space-y-3">
-                            <p className="hidde">
+                            <p>
                                 Rooted in integrity, innovation, and service excellence, Row & Harmony is a trusted name
                                 in:
                             </p>
-                            <ul className="list-disc marker:text-accent pl-6 space-y-1 hidde">
+                            <ul className="list-disc marker:text-accent pl-6 space-y-1">
                                 {whoWeAreServices.map(({ name, description }, index) => (
                                     <li key={name + index}>
                                         <span className="font-semibold">{name}:</span> {description}
