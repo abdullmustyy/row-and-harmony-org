@@ -1,3 +1,4 @@
+import OutlineLabel from "@/components/section-labels/outline-label";
 import WhoWeAreImg from "@/public/images/webps/who-we-are.webp";
 import Image from "next/image";
 
@@ -10,12 +11,7 @@ const Bio = () => {
                 </figure>
 
                 <div>
-                    <div className="relative flex items-center">
-                        <h2 className="text-fluid-6xl font-black [-webkit-text-stroke-width:1px] [-webkit-text-fill-color:transparent] text-accent opacity-60">
-                            About
-                        </h2>
-                        <span className="absolute left-0 text-primary text-fluid-base font-bold">— since 2010</span>
-                    </div>
+                    <OutlineLabel label="About" text="— since 2010" />
 
                     <h3 className="text-fluid-lg font-semibold">Company Overview</h3>
 

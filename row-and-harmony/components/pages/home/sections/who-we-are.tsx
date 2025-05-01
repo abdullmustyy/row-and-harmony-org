@@ -1,5 +1,5 @@
 import ContainerOverlay from "@/components/overlays/container-overlay";
-import SectionLabel from "@/components/section-label";
+import SectionLabel from "@/components/section-labels/bar-label";
 import { whoWeAreServices } from "@/lib/data";
 import WhoWeAreImg from "@/public/images/webps/who-we-are.webp";
 import Image from "next/image";

@@ -1,7 +1,7 @@
 "use client";
 
 import EmblaCarousel from "@/components/embla-carousel";
-import SectionLabel from "@/components/section-label";
+import SectionLabel from "@/components/section-labels/bar-label";
 import WhyChooseUsSlide from "@/components/slides/why-choose-us-slide";
 import { whyChooseUs } from "@/lib/data";
 import ElectricityMaintenence from "@/public/images/webps/electricity-maintenence.webp";

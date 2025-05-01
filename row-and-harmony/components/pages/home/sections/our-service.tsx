@@ -1,5 +1,5 @@
 import ContainerOverlay from "@/components/overlays/container-overlay";
-import SectionLabel from "@/components/section-label";
+import SectionLabel from "@/components/section-labels/bar-label";
 import { ourServices } from "@/lib/data";
 import Image from "next/image";
 

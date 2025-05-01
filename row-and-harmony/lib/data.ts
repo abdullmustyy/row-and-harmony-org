@@ -162,9 +162,21 @@ export const testimonials = [
 ];
 
 export const contactDetails = [
-    { name: "phone", label: "+234 123 4567", href: "tel:+2341234567", Icon: Phone },
-    { name: "email", label: "rowandharmony@gmail.com", href: "mailto:rowandharmony@gmail.com", Icon: Mail },
-    { name: "address", label: "123 Harmony St, Lagos, Nigeria", href: "https://www.google.com/maps", Icon: MapPin },
+    { name: "phone", heading: "Call us", label: "+234 123 4567", href: "tel:+2341234567", Icon: Phone },
+    {
+        name: "email",
+        heading: "Write to us",
+        label: "rowandharmony@gmail.com",
+        href: "mailto:rowandharmony@gmail.com",
+        Icon: Mail,
+    },
+    {
+        name: "address",
+        heading: "Visit us",
+        label: "123 Harmony St, Lagos, Nigeria mmmmmmmmm",
+        href: "https://www.google.com/maps",
+        Icon: MapPin,
+    },
 ] as const;
 
 export const ourClients = [

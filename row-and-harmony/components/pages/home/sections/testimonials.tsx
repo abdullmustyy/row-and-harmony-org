@@ -1,7 +1,7 @@
 "use client";
 
 import EmblaCarousel from "@/components/embla-carousel";
-import SectionLabel from "@/components/section-label";
+import SectionLabel from "@/components/section-labels/bar-label";
 import TestimonialSlide from "@/components/slides/testimonial-slide";
 import { testimonials } from "@/lib/data";
 import Autoplay from "embla-carousel-autoplay";

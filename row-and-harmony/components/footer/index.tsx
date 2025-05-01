@@ -3,6 +3,7 @@
 import { contactDetails, navLinks } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import LogoWhite from "@/public/images/webps/logo-white.webp";
+import { NewsletterSchema } from "@/schemas/news-letter";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Send } from "lucide-react";
 import Image from "next/image";
@@ -10,7 +11,7 @@ import Link from "next/link";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import SectionLabel from "../section-label";
+import SectionLabel from "../section-labels/bar-label";
 import Socials from "../socials";
 import { Button } from "../ui/button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "../ui/form";
@@ -18,10 +19,6 @@ import { Input } from "../ui/input";
 
 type IFooterProps = React.ComponentProps<"footer">;
 type FormType = z.infer<typeof NewsletterSchema>;
-
-const NewsletterSchema = z.object({
-    email: z.string({ required_error: "Please enter your email" }).email("Invalid email address"),
-});
 
 const Footer = ({ className }: IFooterProps) => {
     const form = useForm<FormType>({
