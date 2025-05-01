@@ -173,7 +173,7 @@ export const contactDetails = [
     {
         name: "address",
         heading: "Visit us",
-        label: "123 Harmony St, Lagos, Nigeria mmmmmmmmm",
+        label: "123 Harmony St, Lagos, Nigeria",
         href: "https://www.google.com/maps",
         Icon: MapPin,
     },

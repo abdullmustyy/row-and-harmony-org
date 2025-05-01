@@ -14,7 +14,7 @@ const ContactDetails = () => {
                         <div className="overflow-hidden">
                             <h5 className="font-primary text-primary text-fluid-base font-semibold">{heading}</h5>
                             <Link href={href} title={label} className="before-hover-transform-link">
-                                <p className="truncate">{label}</p>
+                                <span className="truncate">{label}</span>
                             </Link>
                         </div>
                     </div>
