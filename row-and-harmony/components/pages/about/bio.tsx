@@ -48,10 +48,10 @@ const Bio = () => {
                             We have a team of highly trained professionals who are dedicated to providing top-notch
                             services to our clients. Our te&apos; expectations. We are also experts in understanding the
                             needs of our clients and working with them to create customized solutions that meet their
-                            requirements. At ROW & HARMONY, we are committed to providing our clients with the best
-                            quality services. We strive to be the best facility management company in the world and are
-                            proud to be a leader in the industry. Our goal is to provide our clients with an exceptional
-                            experience that will last for years to come.
+                            requirements. At <span className="font-semibold">Row & Harmony</span>, we are committed to
+                            providing our clients with the best quality services. We strive to be the best facility
+                            management company in the world and are proud to be a leader in the industry. Our goal is to
+                            provide our clients with an exceptional experience that will last for years to come.
                         </p>
                     </div>
                 </div>
