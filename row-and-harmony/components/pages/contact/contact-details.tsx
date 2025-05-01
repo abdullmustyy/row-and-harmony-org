@@ -22,7 +22,7 @@ const ContactDetails = () => {
             </div>
             <iframe
                 title="Row & Harmony Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.918545051429!2d3.379205714318102!3d6.457096425364787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b15e0af7f7d%3A0x3a83a697205af51d!2sLagos%20Island%2C%20Lagos%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1714595066232!5m2!1sen!2sng"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.2727765897585!2d3.3810224740816888!3d6.487100693504898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8c86b2ad8ad5%3A0xc25df1232d0d0814!2s34%20Abeokuta%20St%2C%20Adekunle%2C%20Lagos%20101245%2C%20Lagos!5e0!3m2!1sen!2sng!4v1746124120514!5m2!1sen!2sng"
                 className="border-0 h-screen w-full"
                 allowFullScreen={true}
                 referrerPolicy="no-referrer-when-downgrade"

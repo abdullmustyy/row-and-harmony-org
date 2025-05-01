@@ -162,19 +162,19 @@ export const testimonials = [
 ];
 
 export const contactDetails = [
-    { name: "phone", heading: "Call us", label: "+234 123 4567", href: "tel:+2341234567", Icon: Phone },
+    { name: "phone", heading: "Call us", label: "+234 809 951 7896", href: "tel:+2348099517896", Icon: Phone },
     {
         name: "email",
         heading: "Write to us",
-        label: "rowandharmony@gmail.com",
-        href: "mailto:rowandharmony@gmail.com",
+        label: "randhfacility@gmail.com",
+        href: "mailto:randhfacility@gmail.com",
         Icon: Mail,
     },
     {
         name: "address",
         heading: "Visit us",
-        label: "123 Harmony St, Lagos, Nigeria",
-        href: "https://www.google.com/maps",
+        label: "34 Abeokuta St, Adekunle, Lagos 101245, Lagos",
+        href: "https://maps.app.goo.gl/jmBXYfZFqJvthgSx8",
         Icon: MapPin,
     },
 ] as const;

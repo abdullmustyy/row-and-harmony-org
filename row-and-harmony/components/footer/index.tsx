@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Send } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -21,6 +22,8 @@ type IFooterProps = React.ComponentProps<"footer">;
 type FormType = z.infer<typeof NewsletterSchema>;
 
 const Footer = ({ className }: IFooterProps) => {
+    const pathname = usePathname();
+
     const form = useForm<FormType>({
         resolver: zodResolver(NewsletterSchema),
     });
@@ -59,7 +62,13 @@ const Footer = ({ className }: IFooterProps) => {
                     <ul className="flex flex-col list-disc marker:text-accent pl-3 gap-y-2">
                         {navLinks.map(({ href, name }, index) => (
                             <Link key={name + index} href={href} className="w-fit">
-                                <li className="relative before-hover-transform-link w-fit">{name}</li>
+                                <li
+                                    className={cn("relative before-hover-transform-link w-fit", {
+                                        "before:transform-[scale(1,1)]": pathname === href,
+                                    })}
+                                >
+                                    {name}
+                                </li>
                             </Link>
                         ))}
                     </ul>
@@ -77,33 +86,36 @@ const Footer = ({ className }: IFooterProps) => {
                             </p>
                         </div>
                         <Form {...form}>
-                            <form onSubmit={form.handleSubmit(handleSubmit)} className="w-full flex items-start">
+                            <form onSubmit={form.handleSubmit(handleSubmit)} className="w-full">
                                 <FormField
                                     control={form.control}
                                     name="email"
                                     render={({ field }) => (
-                                        <FormItem className="w-full">
-                                            <FormControl>
-                                                <Input
-                                                    {...field}
-                                                    placeholder="Your email"
-                                                    className="rounded-none h-11 focus-visible:ring-0 placeholder:text-background/70 border-accent/60 focus-visible:border-accent/100 caret-accent transition-colors duration-500 ease-1"
-                                                />
-                                            </FormControl>
+                                        <FormItem>
+                                            <div className="flex items-start">
+                                                <FormControl>
+                                                    <Input
+                                                        {...field}
+                                                        placeholder="Your email"
+                                                        className="peer rounded-none h-11 focus-visible:ring-0 placeholder:text-background/70 border-accent/60 focus-visible:border-accent/100 caret-accent aria-invalid:caret-destructive transition-colors duration-500 ease-1"
+                                                    />
+                                                </FormControl>
+                                                <Button
+                                                    className={cn(
+                                                        "bg-accent hover:bg-primary border-y border-r border-accent/60 peer-focus-visible:border-accent/100 h-11 transition-colors duration-500 ease-1",
+                                                        {
+                                                            "bg-destructive hover:bg-destructive border-destructive peer-focus-visible:border-destructive":
+                                                                form.formState.errors.email,
+                                                        },
+                                                    )}
+                                                >
+                                                    <Send className="size-5 text-background" />
+                                                </Button>
+                                            </div>
                                             <FormMessage />
                                         </FormItem>
                                     )}
                                 />
-                                <Button
-                                    className={cn(
-                                        "bg-accent hover:bg-accent h-11 transition-colors duration-500 ease-1",
-                                        {
-                                            "bg-destructive hover:bg-destructive": form.formState.errors.email,
-                                        },
-                                    )}
-                                >
-                                    <Send className="size-5 text-primary" />
-                                </Button>
                             </form>
                         </Form>
                     </div>
