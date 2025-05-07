@@ -75,13 +75,13 @@ export const jobType = defineType({
     preview: {
         select: {
             title: "role",
-            department: "department",
+            type: "type",
             media: "icon",
             salary: "salary",
         },
-        prepare({ title, department, media, salary }) {
+        prepare({ title, type, media, salary }) {
             const formattedPrice = salary ? formatPriceNaira(salary) : undefined;
-            const subtitle = department && formattedPrice ? `${capitalize(department)} - ${formattedPrice}` : undefined;
+            const subtitle = type && formattedPrice ? `${capitalize(type)} - ${formattedPrice}` : undefined;
 
             return { title, subtitle, media };
         },
