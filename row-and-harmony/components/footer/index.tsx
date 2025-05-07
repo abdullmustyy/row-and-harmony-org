@@ -9,9 +9,10 @@ import { Send } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback } from "react";
+import { Fragment, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import ListingsCollapsible from "../navbar/listings-collapsible";
 import SectionLabel from "../section-labels/bar-label";
 import Socials from "../socials";
 import { Button } from "../ui/button";
@@ -60,17 +61,34 @@ const Footer = ({ className }: IFooterProps) => {
                         <h5 className="font-primary">Pages</h5>
                     </SectionLabel>
                     <ul className="flex flex-col list-disc marker:text-accent pl-3 gap-y-2">
-                        {navLinks.map(({ href, name }, index) => (
-                            <Link key={name + index} href={href} className="w-fit">
-                                <li
-                                    className={cn("relative before-hover-transform-link w-fit", {
+                        {navLinks.map(({ name, href }, index) =>
+                            index === 2 ? (
+                                <Fragment key={name + index}>
+                                    <Link
+                                        key={name + index}
+                                        href={href}
+                                        className={cn("before-hover-transform-link w-fit", {
+                                            "before:transform-[scale(1,1)]": pathname === href,
+                                        })}
+                                    >
+                                        <li>{name}</li>
+                                    </Link>
+                                    <li>
+                                        <ListingsCollapsible className="[&_span]:text-background" />
+                                    </li>
+                                </Fragment>
+                            ) : (
+                                <Link
+                                    key={name + index}
+                                    href={href}
+                                    className={cn("before-hover-transform-link w-fit", {
                                         "before:transform-[scale(1,1)]": pathname === href,
                                     })}
                                 >
-                                    {name}
-                                </li>
-                            </Link>
-                        ))}
+                                    <li>{name}</li>
+                                </Link>
+                            ),
+                        )}
                     </ul>
                 </div>
                 <div className="flex flex-col gap-y-6">

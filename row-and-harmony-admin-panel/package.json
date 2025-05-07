@@ -18,7 +18,7 @@
     ],
     "dependencies": {
         "@repo/lib": "workspace:*",
-        "@sanity/cli": "^3.86.1",
+        "@sanity/cli": "^3.87.0",
         "@sanity/vision": "^3.83.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",

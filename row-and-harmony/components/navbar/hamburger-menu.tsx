@@ -1,6 +1,5 @@
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useHamburger } from "@/contexts/hamburger-context";
-import { listingsLinks, navLinks } from "@/lib/data";
+import { navLinks } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import Logo from "@/public/images/webps/logo.webp";
 import Image from "next/image";
@@ -8,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Fragment, useEffect } from "react";
 import Socials from "../socials";
-import { Button } from "../ui/button";
+import ListingsCollapsible from "./listings-collapsible";
 
 const HamburgerMenu = () => {
     const { isHamburgerOpen, setIsHamburgerOpen } = useHamburger();
@@ -72,35 +71,7 @@ const HamburgerMenu = () => {
                                         <li className="text-primary">{name}</li>
                                     </Link>
                                     <li>
-                                        <Collapsible>
-                                            <CollapsibleTrigger asChild>
-                                                <Button
-                                                    className={cn(
-                                                        "size-fit p-0 text-base font-normal bg-transparent hover:bg-transparent shadow-none before-hover-transform-link",
-                                                        {
-                                                            "before:transform-[scale(1,1)]": listingsLinks.some(
-                                                                ({ href }) => pathname.includes(href),
-                                                            ),
-                                                        },
-                                                    )}
-                                                >
-                                                    <span className="text-primary">Listings</span>
-                                                </Button>
-                                            </CollapsibleTrigger>
-                                            {listingsLinks.map(({ name, href }, index) => (
-                                                <CollapsibleContent key={name + index} className="pl-2 pt-2">
-                                                    <Link
-                                                        href={href}
-                                                        className={cn("before-hover-transform-link", {
-                                                            "before:transform-[scale(1,1)]": pathname.includes(href),
-                                                        })}
-                                                        onClick={() => setIsHamburgerOpen(false)}
-                                                    >
-                                                        <span className="text-primary">{name}</span>
-                                                    </Link>
-                                                </CollapsibleContent>
-                                            ))}
-                                        </Collapsible>
+                                        <ListingsCollapsible />
                                     </li>
                                 </Fragment>
                             ) : (
