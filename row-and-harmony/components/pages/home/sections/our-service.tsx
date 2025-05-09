@@ -1,9 +1,13 @@
 import ContainerOverlay from "@/components/overlays/container-overlay";
 import SectionLabel from "@/components/section-labels/bar-label";
-import { ourServices } from "@/lib/data";
+import { urlFor } from "@/sanity/lib/image";
+import { sanityFetch } from "@/sanity/lib/live";
+import { getServicesQuery } from "@/sanity/lib/queries";
+import { Icon } from "@iconify/react";
 import Image from "next/image";
 
-const OurService = () => {
+const OurService = async () => {
+    const { data: services } = await sanityFetch({ query: getServicesQuery });
     return (
         <section className="md:px-8 px-4 lg:space-y-16 space-y-12 md:py-[10vh] py-[8vh]">
             <div className="space-y-8">
@@ -25,18 +29,26 @@ const OurService = () => {
                 </div>
             </div>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-12 gap-8">
-                {ourServices.map(({ description, Icon, image, name }, index) => (
+                {services.map(({ _id, description, icon, image, name }) => (
                     <div
-                        key={name + index}
+                        key={_id}
                         className="group relative flex flex-col gap-y-8 p-8 border border-accent/50 border-b-3 border-b-primary overflow-hidden hover:text-background transition-colors duration-400"
                     >
                         <div className="absolute inset-0 -z-10 clip-to-top group-hover:clip-full transition-all duration-500 ease-1">
                             <figure className="relative size-full">
-                                <Image src={image} alt={`${name} Image`} className="size-full object-cover" />
+                                <Image
+                                    src={urlFor(image ?? "").url()}
+                                    alt={`${name} Image`}
+                                    fill
+                                    className="size-full object-cover"
+                                />
                                 <ContainerOverlay />
                             </figure>
                         </div>
-                        <Icon className="size-16 text-primary group-hover:text-accent transition-colors duration-400 ease-1" />
+                        <Icon
+                            icon={icon?.name ?? ""}
+                            className="*:stroke-1 size-16 text-primary group-hover:text-accent transition-colors duration-400 ease-1"
+                        />
                         <div className="space-y-3">
                             <h3 className="text-fluid-lg font-primary font-medium whitespace-pre-line">{name}</h3>
                             <p className="text-fluid-sm">{description}</p>

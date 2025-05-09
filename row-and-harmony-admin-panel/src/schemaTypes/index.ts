@@ -1,4 +1,5 @@
-import {jobType} from './jobType'
-import {propertyType} from './propertyType'
+import { jobType } from "./jobType";
+import { propertyType } from "./propertyType";
+import { serviceType } from "./serviceType";
 
-export const schemaTypes = [jobType, propertyType]
+export const schemaTypes = [jobType, propertyType, serviceType];

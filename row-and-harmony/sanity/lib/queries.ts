@@ -9,3 +9,6 @@ export const getPropertyByIdQuery = defineQuery(`*[_type == 'property' && _id ==
 export const getJobsQuery = defineQuery(`*[_type == 'job'] | order(datePosted)`);
 
 export const getJobByIdQuery = defineQuery(`*[_type == 'job' && _id == $id]`);
+
+// Services Queries
+export const getServicesQuery = defineQuery(`*[_type == 'service'] | order(_createdAt asc)`);

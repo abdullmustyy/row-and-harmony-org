@@ -74,6 +74,29 @@ export type Slug = {
   source?: string;
 };
 
+export type Service = {
+  _id: string;
+  _type: "service";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  description?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  icon?: Icon;
+};
+
 export type Property = {
   _id: string;
   _type: "property";
@@ -213,7 +236,12 @@ export type Job = {
   datePosted?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Property | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Job;
+export type Icon = {
+  _type: "icon";
+  name?: string;
+};
+
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Service | Property | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Job | Icon;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: getPropertiesQuery
@@ -384,6 +412,30 @@ export type GetJobByIdQueryResult = Array<{
   applicationLink?: string;
   datePosted?: string;
 }>;
+// Variable: getServicesQuery
+// Query: *[_type == 'service'] | order(_createdAt asc)
+export type GetServicesQueryResult = Array<{
+  _id: string;
+  _type: "service";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  description?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  icon?: Icon;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -393,5 +445,6 @@ declare module "@sanity/client" {
     "*[_type == 'property' && _id == $id]": GetPropertyByIdQueryResult;
     "*[_type == 'job'] | order(datePosted)": GetJobsQueryResult;
     "*[_type == 'job' && _id == $id]": GetJobByIdQueryResult;
+    "*[_type == 'service'] | order(_createdAt asc)": GetServicesQueryResult;
   }
 }
