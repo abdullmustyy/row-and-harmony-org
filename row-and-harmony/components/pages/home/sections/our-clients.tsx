@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const OurClients = () => {
     return (
-        <section className="md:px-8 px-4 space-y-6 pt-[10vh] relative z-20">
+        <section className="md:px-8 px-4 space-y-6 pt-[10vh] bg-background relative z-20">
             <SectionLabel className="items-center">
                 <p>Our Trusted Clients</p>
             </SectionLabel>

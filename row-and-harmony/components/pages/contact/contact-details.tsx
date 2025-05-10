@@ -11,7 +11,7 @@ const ContactDetails = () => {
                         <div className="size-16 shrink-0 bg-primary group-hover:bg-accent grid place-content-center transition-colors duration-500 ease-1">
                             <Icon className="size-8 stroke-background" />
                         </div>
-                        <div className="overflow-hidden">
+                        <div className="overflow-hidden w-full">
                             <h5 className="font-primary text-primary text-fluid-base font-semibold">{heading}</h5>
                             <Link href={href} title={label} className="before-hover-transform-link">
                                 <span className="truncate">{label}</span>
@@ -27,7 +27,7 @@ const ContactDetails = () => {
                 allowFullScreen={true}
                 referrerPolicy="no-referrer-when-downgrade"
             />
-            <GetAQuote className="md:w-4/5 w-9/10 absolute bottom-0" />
+            <GetAQuote className="[&>div]:md:w-4/5 [&>div]:w-9/10 w-full absolute bottom-0 bg-transparent" />
         </section>
     );
 };

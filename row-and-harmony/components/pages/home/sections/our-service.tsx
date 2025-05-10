@@ -9,7 +9,7 @@ import Image from "next/image";
 const OurService = async () => {
     const { data: services } = await sanityFetch({ query: getServicesQuery });
     return (
-        <section className="md:px-8 px-4 lg:space-y-16 space-y-12 md:py-[10vh] py-[8vh]">
+        <section className="md:px-8 px-4 lg:space-y-16 space-y-12 md:py-[10vh] py-[8vh] bg-background relative z-20">
             <div className="space-y-8">
                 <SectionLabel className="lg:items-center">
                     <p>What We Do Best</p>
