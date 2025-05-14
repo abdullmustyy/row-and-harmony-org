@@ -14,7 +14,7 @@ const WhoWeAre = () => {
                         <Image src={WhoWeAreImg} alt="Who We Are" className="object-cover size-full -mt-10" />
                         <ContainerOverlay className="opacity-50 md:block hidden" />
                         <div className="absolute top-10 left-0 px-8 pt-8 pb-6 bg-accent text-background md:flex hidden flex-col gap-y-3 clip-trapezoid">
-                            <h2 className="text-fluid-2xl font-medium font-primary">15</h2>
+                            <h2 className="text-fluid-2xl font-medium font-primary">10+</h2>
                             <span className="text-fluid-sm font-medium">
                                 Years of work
                                 <br /> experience

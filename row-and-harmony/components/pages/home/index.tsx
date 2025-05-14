@@ -4,14 +4,14 @@ import Hero from "./sections/hero";
 import OurClients from "./sections/our-clients";
 import OurService from "./sections/our-service";
 import Testimonials from "./sections/testimonials";
-import WhoWeAreImg from "./sections/who-we-are";
+import WhoWeAre from "./sections/who-we-are";
 import WhyChooseUs from "./sections/why-choose-us";
 
 const HomePage = () => {
     return (
         <main className="relative isolate">
             <Hero />
-            <WhoWeAreImg />
+            <WhoWeAre />
             <OurService />
             <WhyChooseUs />
             <GetInTouch />

@@ -11,14 +11,14 @@ const Bio = () => {
                 </figure>
 
                 <div className="lg:w-7/12 w-full">
-                    <OutlineLabel label="About" text="— since 2010" />
+                    <OutlineLabel label="About" />
 
                     <h3 className="text-fluid-lg font-semibold">Company Overview</h3>
 
                     <div className="mt-4 space-y-3">
                         <p>
                             <span className="font-semibold">Row & Harmony</span> is an active player in the Facility
-                            management industry in the world with numerous years of experience in the Maintenance
+                            management industry in the world with over 10 years of experience in the Maintenance
                             business and a robust portfolio of commercial and residential properties being managed by
                             the company. We are committed to providing our client with personalized services. Our
                             services include but are not limited to:
