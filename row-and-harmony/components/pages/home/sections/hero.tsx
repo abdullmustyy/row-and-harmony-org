@@ -18,7 +18,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative -mb-[calc(100vh-var(--spacing-nav)+2rem)]">
+        <section className="relative md:-mb-[calc(100vh-var(--spacing-nav)+2rem)] -mb-[calc(100vh-var(--spacing-nav)+4rem)]">
             <div className="group sticky top-nav flex items-center-safe min-h-[calc(100vh-var(--spacing-nav))] w-full md:px-16 px-8">
                 <div className="text-background space-y-8">
                     <div className="space-y-2 ">
@@ -49,10 +49,10 @@ const Hero = () => {
                 <Button
                     aria-label="Toggle Mute"
                     variant="outline"
-                    className="lg:opacity-0 group-hover:opacity-100 absolute md:top-12 top-6 md:right-12 right-6 size-12 rounded-full bg-transparent hover:bg-primary text-background hover:text-background transition duration-500 ease-1"
+                    className="lg:opacity-0 group-hover:opacity-100 absolute md:top-12 top-6 md:right-12 right-6 md:size-12 size-10 rounded-full bg-transparent hover:bg-primary text-background hover:text-background transition duration-500 ease-1"
                     onClick={toggleMute}
                 >
-                    {muted ? <VolumeOff className="size-5" /> : <Volume2 className="size-5" />}
+                    {muted ? <VolumeOff className="md:size-5 size-4" /> : <Volume2 className="md:size-5 size-4" />}
                 </Button>
                 <ContainerOverlay className="-z-10" />
             </div>
