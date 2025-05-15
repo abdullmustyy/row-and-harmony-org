@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     /* config options here */
-    allowedDevOrigins: ["*.loca.lt"],
+    allowedDevOrigins: ["*pinggy.link"],
     images: {
         remotePatterns: [
             {

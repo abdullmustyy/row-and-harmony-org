@@ -18,7 +18,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative md:-mb-[calc(100vh-var(--spacing-nav)+2rem)] -mb-[calc(100vh-var(--spacing-nav)+4rem)]">
+        <section className="relative md:-mb-[calc(100vh-var(--spacing-nav)+2rem)] -mb-[calc(100vh-var(--spacing-nav)+5rem)]">
             <div className="group sticky top-nav flex items-center-safe min-h-[calc(100vh-var(--spacing-nav))] w-full md:px-16 px-8">
                 <div className="text-background space-y-8">
                     <div className="space-y-2 ">

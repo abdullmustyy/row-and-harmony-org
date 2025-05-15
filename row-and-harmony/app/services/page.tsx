@@ -1,5 +1,8 @@
 import ServicesPage from "@/components/pages/services";
+import ServiceContent from "@/components/pages/services/service-content";
 import { metadataBaseImage, metadataBaseUrl } from "@/lib/constants";
+import { sanityFetch } from "@/sanity/lib/live";
+import { getServicesQuery } from "@/sanity/lib/queries";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,8 +16,14 @@ export const metadata: Metadata = {
     },
 };
 
-const Services = () => {
-    return <ServicesPage />;
+const Services = async () => {
+    const { data: services } = await sanityFetch({ query: getServicesQuery });
+
+    return (
+        <ServicesPage>
+            <ServiceContent {...{ services }} />
+        </ServicesPage>
+    );
 };
 
 export default Services;

@@ -1,5 +1,6 @@
 "use client";
 
+import PortableTextContainer from "@/components/portable-text-container";
 import { Button } from "@/components/ui/button";
 import { GetJobByIdQueryResult } from "@/sanity/types";
 import { PortableText } from "@portabletext/react";
@@ -50,9 +51,9 @@ const JobPage = ({ job }: IJobPageProps) => {
 
             <div className="md:px-4 px-2 py-4">
                 <h2 className="text-lg font font-semibold mb-4">Job Description/Requirements</h2>
-                <div className="[&_ul]:list-disc [&_ul]:pl-6 [&_a]:underline *:mb-3">
+                <PortableTextContainer>
                     <PortableText value={job.jobDetails?.jobDescription ?? []} />
-                </div>
+                </PortableTextContainer>
             </div>
         </section>
     );

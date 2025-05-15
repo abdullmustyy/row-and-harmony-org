@@ -95,6 +95,32 @@ export type Service = {
     _type: "image";
   };
   icon?: Icon;
+  serviceOverview?: {
+    heading?: string;
+    details?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+  };
+  serviceCenter?: {
+    intro?: string;
+    services?: Array<string>;
+    outro?: string;
+  };
 };
 
 export type Property = {
@@ -407,7 +433,7 @@ export type GetJobByIdQueryResult = Array<{
   applicationLink?: string;
 }>;
 // Variable: getServicesQuery
-// Query: *[_type == 'service'] | order(_createdAt asc)
+// Query: *[_type == 'service']
 export type GetServicesQueryResult = Array<{
   _id: string;
   _type: "service";
@@ -429,6 +455,32 @@ export type GetServicesQueryResult = Array<{
     _type: "image";
   };
   icon?: Icon;
+  serviceOverview?: {
+    heading?: string;
+    details?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+  };
+  serviceCenter?: {
+    intro?: string;
+    services?: Array<string>;
+    outro?: string;
+  };
 }>;
 
 // Query TypeMap
@@ -439,6 +491,6 @@ declare module "@sanity/client" {
     "*[_type == 'property' && _id == $id]": GetPropertyByIdQueryResult;
     "*[_type == 'job'] | order(_createdAt desc)": GetJobsQueryResult;
     "*[_type == 'job' && _id == $id]": GetJobByIdQueryResult;
-    "*[_type == 'service'] | order(_createdAt asc)": GetServicesQueryResult;
+    "*[_type == 'service']": GetServicesQueryResult;
   }
 }
