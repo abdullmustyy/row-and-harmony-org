@@ -72,11 +72,6 @@ export const propertyType = defineType({
                     name: "phone",
                     type: "string",
                 }),
-                defineField({
-                    name: "datePosted",
-                    type: "datetime",
-                    initialValue: new Date().toISOString(),
-                }),
             ],
         }),
     ],

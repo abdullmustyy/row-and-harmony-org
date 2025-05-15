@@ -139,7 +139,6 @@ export type Property = {
     name?: string;
     email?: string;
     phone?: string;
-    datePosted?: string;
   };
 };
 
@@ -233,7 +232,6 @@ export type Job = {
   location?: string;
   type?: "full-time" | "part-time" | "contract" | "internship";
   applicationLink?: string;
-  datePosted?: string;
 };
 
 export type Icon = {
@@ -245,7 +243,7 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: getPropertiesQuery
-// Query: *[_type == 'property'] | order(datePosted)
+// Query: *[_type == 'property'] | order(_createdAt desc)
 export type GetPropertiesQueryResult = Array<{
   _id: string;
   _type: "property";
@@ -288,7 +286,6 @@ export type GetPropertiesQueryResult = Array<{
     name?: string;
     email?: string;
     phone?: string;
-    datePosted?: string;
   };
 }>;
 // Variable: getPropertyByIdQuery
@@ -335,11 +332,10 @@ export type GetPropertyByIdQueryResult = Array<{
     name?: string;
     email?: string;
     phone?: string;
-    datePosted?: string;
   };
 }>;
 // Variable: getJobsQuery
-// Query: *[_type == 'job'] | order(datePosted)
+// Query: *[_type == 'job'] | order(_createdAt desc)
 export type GetJobsQueryResult = Array<{
   _id: string;
   _type: "job";
@@ -373,7 +369,6 @@ export type GetJobsQueryResult = Array<{
   location?: string;
   type?: "contract" | "full-time" | "internship" | "part-time";
   applicationLink?: string;
-  datePosted?: string;
 }>;
 // Variable: getJobByIdQuery
 // Query: *[_type == 'job' && _id == $id]
@@ -410,7 +405,6 @@ export type GetJobByIdQueryResult = Array<{
   location?: string;
   type?: "contract" | "full-time" | "internship" | "part-time";
   applicationLink?: string;
-  datePosted?: string;
 }>;
 // Variable: getServicesQuery
 // Query: *[_type == 'service'] | order(_createdAt asc)
@@ -441,9 +435,9 @@ export type GetServicesQueryResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == 'property'] | order(datePosted)": GetPropertiesQueryResult;
+    "*[_type == 'property'] | order(_createdAt desc)": GetPropertiesQueryResult;
     "*[_type == 'property' && _id == $id]": GetPropertyByIdQueryResult;
-    "*[_type == 'job'] | order(datePosted)": GetJobsQueryResult;
+    "*[_type == 'job'] | order(_createdAt desc)": GetJobsQueryResult;
     "*[_type == 'job' && _id == $id]": GetJobByIdQueryResult;
     "*[_type == 'service'] | order(_createdAt asc)": GetServicesQueryResult;
   }

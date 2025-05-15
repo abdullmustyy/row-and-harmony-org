@@ -66,11 +66,6 @@ export const jobType = defineType({
                     scheme: ["http", "https", "mailto", "tel"],
                 }).required(),
         }),
-        defineField({
-            name: "datePosted",
-            type: "datetime",
-            initialValue: new Date().toISOString(),
-        }),
     ],
     preview: {
         select: {

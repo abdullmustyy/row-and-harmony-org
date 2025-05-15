@@ -749,13 +749,6 @@
                 "type": "string"
               },
               "optional": true
-            },
-            "datePosted": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
             }
           }
         },
@@ -1384,13 +1377,6 @@
         "optional": true
       },
       "applicationLink": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
-      "datePosted": {
         "type": "objectAttribute",
         "value": {
           "type": "string"

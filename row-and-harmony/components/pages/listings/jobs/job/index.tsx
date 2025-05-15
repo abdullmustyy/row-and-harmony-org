@@ -26,7 +26,7 @@ const JobPage = ({ job }: IJobPageProps) => {
                 <div className="flex items-center text-sm">
                     <span>{job.location}</span>
                     <Dot className="size-4" />
-                    <span>{capitalize(formatRelativeDate(job.datePosted!))}</span>
+                    <span>{capitalize(formatRelativeDate(job._createdAt))}</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
                     <span className="bg-muted px-2 py-1">{capitalize(job.type!)}</span>

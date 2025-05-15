@@ -18,16 +18,12 @@ const JobsPage = ({ jobs }: IJobsPageProps) => {
                         <JobCard job={job} className="group flex flex-col border hover:scale-[100.5%]">
                             <div className="p-4 flex items-start gap-4">
                                 <div className="grid place-content-center size-15 p-1 shrink-0 border">
-                                    <Image
-                                        src={Icon}
-                                        alt="Job Icon"
-                                        className="size-full object-cover"
-                                    />
+                                    <Image src={Icon} alt="Job Icon" className="size-full object-cover" />
                                 </div>
                                 <p className="line-clamp-5">{job.jobDetails?.jobSummary}</p>
                             </div>
                             <div className="bg-accent/50 px-4 py-2 mt-auto">
-                                <span>{capitalize(formatRelativeDate(job.datePosted!))}</span>
+                                <span>{capitalize(formatRelativeDate(job._createdAt))}</span>
                             </div>
                         </JobCard>
                     </Link>
