@@ -49,7 +49,7 @@ const Hero = () => {
                 <Button
                     aria-label="Toggle Mute"
                     variant="outline"
-                    className="opacity-0 group-hover:opacity-100 absolute md:top-12 top-8 md:right-12 right-8 size-12 rounded-full bg-transparent hover:bg-primary text-background hover:text-background transition duration-500 ease-1"
+                    className="lg:opacity-0 group-hover:opacity-100 absolute md:top-12 top-6 md:right-12 right-6 size-12 rounded-full bg-transparent hover:bg-primary text-background hover:text-background transition duration-500 ease-1"
                     onClick={toggleMute}
                 >
                     {muted ? <VolumeOff className="size-5" /> : <Volume2 className="size-5" />}
