@@ -1,9 +1,20 @@
 import SectionLabel from "@/components/section-labels/bar-label";
-import { ourClients } from "@/lib/data";
+import { urlFor } from "@/sanity/lib/image";
+import { GetClientsQueryResult } from "@/sanity/types";
 import Image from "next/image";
 import Link from "next/link";
+import { useMemo } from "react";
 
-const OurClients = () => {
+interface IOurClientsProps extends React.ComponentProps<"section"> {
+    clients: GetClientsQueryResult;
+}
+
+const OurClients = ({ clients }: IOurClientsProps) => {
+    const ourClients = useMemo(
+        () => [...clients, ...clients, ...clients, ...clients, ...clients, ...clients],
+        [clients],
+    );
+
     return (
         <section className="md:px-8 px-4 space-y-6 pt-[10vh] bg-background relative z-20">
             <SectionLabel className="items-center">
@@ -15,16 +26,23 @@ const OurClients = () => {
             </div>
             <div className="overflow-x-hidden mask-image-horizontal">
                 <ul className="flex items-center pl-8 gap-x-8 whitespace-nowrap w-fit animate-marquee">
-                    {ourClients.map(({ href, image, name }, index) => (
-                        <li key={name + index} className="group min-w-fit flex items-center justify-center">
-                            <Link href={href} target="_blank" rel="noopener noreferrer" title={name}>
+                    {ourClients.map(({ _id, href, image, name, location }, index) => (
+                        <Link
+                            key={_id + index}
+                            href={href!}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={`${name} — ${location}`}
+                        >
+                            <li className="group relative md:h-30 h-20 aspect-square flex items-center justify-center">
                                 <Image
-                                    src={image}
-                                    alt=""
-                                    className="md:h-30 h-20 md:max-w-100 max-w-40 grayscale group-hover:grayscale-0 opacity-85 group-hover:opacity-100 transition-all duration-300 ease-1"
+                                    src={urlFor(image!).url()}
+                                    alt={name!}
+                                    fill
+                                    className="size-full grayscale group-hover:grayscale-0 opacity-85 group-hover:opacity-100 transition-all duration-300 ease-1"
                                 />
-                            </Link>
-                        </li>
+                            </li>
+                        </Link>
                     ))}
                 </ul>
             </div>

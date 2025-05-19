@@ -1,5 +1,8 @@
 import { defineQuery } from "next-sanity";
 
+// Clients Queries
+export const getClientsQuery = defineQuery(`*[_type == 'client']`);
+
 // Properties Queries
 export const getPropertiesQuery = defineQuery(`*[_type == 'property'] | order(_createdAt desc)`);
 

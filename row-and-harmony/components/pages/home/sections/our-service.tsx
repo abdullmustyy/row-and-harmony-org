@@ -1,14 +1,15 @@
 import ContainerOverlay from "@/components/overlays/container-overlay";
 import SectionLabel from "@/components/section-labels/bar-label";
 import { urlFor } from "@/sanity/lib/image";
-import { sanityFetch } from "@/sanity/lib/live";
-import { getServicesQuery } from "@/sanity/lib/queries";
+import { GetServicesQueryResult } from "@/sanity/types";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 
-const OurService = async () => {
-    const { data: services } = await sanityFetch({ query: getServicesQuery });
+interface IOurServiceProps extends React.ComponentProps<"section"> {
+    services: GetServicesQueryResult;
+}
 
+const OurService = ({ services }: IOurServiceProps) => {
     return (
         <section className="md:px-8 px-4 lg:space-y-16 space-y-12 md:py-[10vh] py-[8vh] bg-background relative z-20">
             <div className="space-y-8">
@@ -38,7 +39,7 @@ const OurService = async () => {
                         <div className="absolute inset-0 -z-10 clip-to-top group-hover:clip-full transition-all duration-500 ease-1">
                             <figure className="relative size-full">
                                 <Image
-                                    src={urlFor(image ?? "").url()}
+                                    src={urlFor(image!).url()}
                                     alt={`${name} Image`}
                                     fill
                                     className="size-full object-cover"

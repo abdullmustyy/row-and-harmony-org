@@ -168,6 +168,64 @@ export type Property = {
   };
 };
 
+export type Job = {
+  _id: string;
+  _type: "job";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  role?: string;
+  jobDetails?: {
+    jobSummary?: string;
+    jobDescription?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+  };
+  department?: string;
+  salary?: number;
+  location?: string;
+  type?: "full-time" | "part-time" | "contract" | "internship";
+  applicationLink?: string;
+};
+
+export type Client = {
+  _id: string;
+  _type: "client";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  href?: string;
+  location?: string;
+};
+
 export type SanityImageCrop = {
   _type: "sanity.imageCrop";
   top?: number;
@@ -225,49 +283,38 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type Job = {
-  _id: string;
-  _type: "job";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  role?: string;
-  jobDetails?: {
-    jobSummary?: string;
-    jobDescription?: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }>;
-  };
-  department?: string;
-  salary?: number;
-  location?: string;
-  type?: "full-time" | "part-time" | "contract" | "internship";
-  applicationLink?: string;
-};
-
 export type Icon = {
   _type: "icon";
   name?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Service | Property | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Job | Icon;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Service | Property | Job | Client | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Icon;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
+// Variable: getClientsQuery
+// Query: *[_type == 'client']
+export type GetClientsQueryResult = Array<{
+  _id: string;
+  _type: "client";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  href?: string;
+  location?: string;
+}>;
 // Variable: getPropertiesQuery
 // Query: *[_type == 'property'] | order(_createdAt desc)
 export type GetPropertiesQueryResult = Array<{
@@ -487,6 +534,7 @@ export type GetServicesQueryResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
+    "*[_type == 'client']": GetClientsQueryResult;
     "*[_type == 'property'] | order(_createdAt desc)": GetPropertiesQueryResult;
     "*[_type == 'property' && _id == $id]": GetPropertyByIdQueryResult;
     "*[_type == 'job'] | order(_createdAt desc)": GetJobsQueryResult;
