@@ -479,9 +479,64 @@ export type GetJobByIdQueryResult = Array<{
   type?: "contract" | "full-time" | "internship" | "part-time";
   applicationLink?: string;
 }>;
+// Variable: getServicesIdsQuery
+// Query: *[_type == 'service']{_id}
+export type GetServicesIdsQueryResult = Array<{
+  _id: string;
+}>;
 // Variable: getServicesQuery
 // Query: *[_type == 'service']
 export type GetServicesQueryResult = Array<{
+  _id: string;
+  _type: "service";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  description?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  icon?: Icon;
+  serviceOverview?: {
+    heading?: string;
+    details?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+  };
+  serviceCenter?: {
+    intro?: string;
+    services?: Array<string>;
+    outro?: string;
+  };
+}>;
+// Variable: getServiceByIdQuery
+// Query: *[_type == 'service' && _id == $id]
+export type GetServiceByIdQueryResult = Array<{
   _id: string;
   _type: "service";
   _createdAt: string;
@@ -539,6 +594,8 @@ declare module "@sanity/client" {
     "*[_type == 'property' && _id == $id]": GetPropertyByIdQueryResult;
     "*[_type == 'job'] | order(_createdAt desc)": GetJobsQueryResult;
     "*[_type == 'job' && _id == $id]": GetJobByIdQueryResult;
+    "*[_type == 'service']{_id}": GetServicesIdsQueryResult;
     "*[_type == 'service']": GetServicesQueryResult;
+    "*[_type == 'service' && _id == $id]": GetServiceByIdQueryResult;
   }
 }

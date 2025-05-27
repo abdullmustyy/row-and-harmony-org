@@ -20,7 +20,6 @@ import SaintEdwardsLogo from "@/public/images/webps/st-edwards-logo.webp";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export const navLinks = [
-    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Contact", href: "/contact" },

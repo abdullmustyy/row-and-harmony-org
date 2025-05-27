@@ -58,13 +58,13 @@ const HamburgerMenu = () => {
                     </div>
                     <ul className="flex flex-col items-start gap-y-4">
                         {navLinks.map(({ name, href }, index) =>
-                            index === 2 ? (
+                            index === 1 ? (
                                 <Fragment key={name + index}>
                                     <Link
                                         key={name + index}
                                         href={href}
                                         className={cn("before-hover-transform-link", {
-                                            "before:transform-[scale(1,1)]": pathname === href,
+                                            "before:transform-[scale(1,1)]": pathname.includes(href),
                                         })}
                                         onClick={() => setIsHamburgerOpen(false)}
                                     >
@@ -79,7 +79,7 @@ const HamburgerMenu = () => {
                                     key={name + index}
                                     href={href}
                                     className={cn("before-hover-transform-link", {
-                                        "before:transform-[scale(1,1)]": pathname === href,
+                                        "before:transform-[scale(1,1)]": pathname.includes(href),
                                     })}
                                     onClick={() => setIsHamburgerOpen(false)}
                                 >

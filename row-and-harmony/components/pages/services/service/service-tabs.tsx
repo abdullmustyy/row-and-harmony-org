@@ -1,43 +1,44 @@
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { sanityFetch } from "@/sanity/lib/live";
+import { getServicesQuery } from "@/sanity/lib/queries";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
-type ITabs = {
-    _id: string;
-    name: string | undefined;
-};
 interface IServiceTabsProps extends React.ComponentProps<"div"> {
-    serviceId: string;
-    setServiceId: React.Dispatch<React.SetStateAction<string>>;
-    tabs: ITabs[];
+    params: Promise<{ id: string }>;
 }
 
-const ServiceTabs = ({ className, serviceId, setServiceId, tabs }: IServiceTabsProps) => {
+const ServiceTabs = async ({ className, params }: IServiceTabsProps) => {
+    const { id } = await params;
+    const { data: services } = await sanityFetch({ query: getServicesQuery });
+
     return (
         <div className={cn("flex flex-col items-start gap-3", className)}>
-            {tabs.map(({ _id, name }) => (
-                <Button
+            {services.map(({ _id, name }) => (
+                <Link
+                    href={`/services/${_id}`}
                     key={_id}
                     className={cn(
+                        buttonVariants({ variant: "default" }),
                         "group justify-between items-center text-foreground hover:text-background bg-secondary p-4 h-auto w-full duration-400 ease-1",
                         {
-                            "bg-primary text-background": serviceId === _id,
+                            "bg-primary text-background": _id === id,
                         },
                     )}
-                    onClick={() => setServiceId(_id)}
                 >
                     <span className="text-base font-semibold">{name}</span>
                     <div
                         className={cn(
                             "size-8 grid place-content-center bg-primary group-hover:bg-accent transition-colors duration-500 ease-1",
                             {
-                                "bg-accent": serviceId === _id,
+                                "bg-accent": _id === id,
                             },
                         )}
                     >
                         <ChevronRight className="stroke-background size-5" />
                     </div>
-                </Button>
+                </Link>
             ))}
         </div>
     );
