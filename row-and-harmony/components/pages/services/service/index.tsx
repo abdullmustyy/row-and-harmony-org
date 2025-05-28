@@ -1,5 +1,6 @@
 import PortableTextContainer from "@/components/portable-text-container";
 import OutlineLabel from "@/components/section-labels/outline-label";
+import { getImage } from "@/lib/plaiceholder";
 import { urlFor } from "@/sanity/lib/image";
 import { GetServiceByIdQueryResult } from "@/sanity/types";
 import { PortableText } from "next-sanity";
@@ -9,16 +10,20 @@ interface IServicePageProps extends React.ComponentProps<"main"> {
     service: GetServiceByIdQueryResult[number];
 }
 
-const ServicePage = ({ service }: IServicePageProps) => {
+const ServicePage = async ({ service }: IServicePageProps) => {
+    const blurURL = urlFor(service.image ?? "").url();
+    const { base64, img } = await getImage(blurURL);
+
     return (
         <div className="flex flex-col gap-8">
             <figure className="relative h-130 w-full">
                 <Image
-                    src={urlFor(service.image ?? "").url()}
-                    alt="Who We Are"
-                    fill
+                    {...img}
+                    alt={service.name!}
                     priority
-                    className="object-cover"
+                    placeholder="blur"
+                    blurDataURL={base64}
+                    className="size-full object-cover"
                 />
             </figure>
 
