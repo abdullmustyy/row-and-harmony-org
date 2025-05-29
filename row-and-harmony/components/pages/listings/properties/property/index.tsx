@@ -1,9 +1,9 @@
+import DynamicImage from "@/components/dynamic-image";
 import { Button } from "@/components/ui/button";
 import { urlFor } from "@/sanity/lib/image";
 import { GetPropertyByIdQueryResult } from "@/sanity/types";
 import { formatPriceNaira } from "@repo/lib/utils";
 import { Mail, MapPin, MoveLeft, Phone, Share } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo } from "react";
 
@@ -13,18 +13,13 @@ interface IPropertyPageProps extends Omit<React.ComponentProps<"main">, "propert
 
 const PropertyPage = ({ property }: IPropertyPageProps) => {
     const displayImage = useMemo(
-        () =>
-            property.images?.display
-                ? { src: urlFor(property.images.display).url(), blur: urlFor(property.images.display).blur(50).url() }
-                : { src: "", blur: "" },
+        () => (property.images?.display ? urlFor(property.images.display).url() : ""),
         [property.images?.display],
     );
     const showcaseImages = useMemo(
         () =>
             property.images?.showcase
-                ? property.images.showcase
-                      .slice(0, 4)
-                      .map((showcase) => ({ src: urlFor(showcase).url(), blur: urlFor(showcase).blur(50).url() }))
+                ? property.images.showcase.slice(0, 4).map((showcase) => urlFor(showcase).url())
                 : [],
         [property.images?.showcase],
     );
@@ -45,29 +40,11 @@ const PropertyPage = ({ property }: IPropertyPageProps) => {
 
                 <div className="mt-6 mb-8 grid md:grid-cols-[2.3fr_1fr_1fr] grid-cols-2 md:grid-rows-2 grid-rows-3 gap-4 items-stretch h-100">
                     <div className="md:row-span-2 md:col-span-1 col-span-2">
-                        <Image
-                            src={displayImage.src}
-                            alt=""
-                            width={629.019}
-                            height={400}
-                            placeholder="blur"
-                            blurDataURL={displayImage.blur}
-                            priority
-                            className="size-full object-cover"
-                        />
+                        <DynamicImage src={displayImage} alt="" priority className="size-full object-cover" />
                     </div>
-                    {showcaseImages.map(({ src, blur }, index) => (
+                    {showcaseImages.map((src, index) => (
                         <div key={src + index}>
-                            <Image
-                                src={src}
-                                alt=""
-                                width={273.487}
-                                height={192}
-                                placeholder="blur"
-                                blurDataURL={blur}
-                                priority
-                                className="size-full object-cover"
-                            />
+                            <DynamicImage src={src} alt="" priority className="size-full object-cover" />
                         </div>
                     ))}
                 </div>

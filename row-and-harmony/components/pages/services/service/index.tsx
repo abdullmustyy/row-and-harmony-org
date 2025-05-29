@@ -1,28 +1,21 @@
+import DynamicImage from "@/components/dynamic-image";
 import PortableTextContainer from "@/components/portable-text-container";
 import OutlineLabel from "@/components/section-labels/outline-label";
-import { getImage } from "@/lib/plaiceholder";
 import { urlFor } from "@/sanity/lib/image";
 import { GetServiceByIdQueryResult } from "@/sanity/types";
 import { PortableText } from "next-sanity";
-import Image from "next/image";
 
 interface IServicePageProps extends React.ComponentProps<"main"> {
     service: GetServiceByIdQueryResult[number];
 }
 
 const ServicePage = async ({ service }: IServicePageProps) => {
-    const blurURL = urlFor(service.image ?? "").url();
-    const { base64, img } = await getImage(blurURL);
-
     return (
         <div className="flex flex-col gap-8">
             <figure className="relative h-130 w-full">
-                <Image
-                    {...img}
+                <DynamicImage
+                    src={urlFor(service.image ?? "").url()}
                     alt={service.name!}
-                    priority
-                    placeholder="blur"
-                    blurDataURL={base64}
                     className="size-full object-cover"
                 />
             </figure>

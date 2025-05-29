@@ -1,9 +1,5 @@
-import { LoaderCircle } from "lucide-react";
+import Loader from "@/components/loader";
 
 export default function Loading() {
-    return (
-        <div className="mt-nav h-[calc(100vh-var(--spacing-nav))] grid place-content-center">
-            <LoaderCircle className="size-6 stroke-primary animate-spin" />
-        </div>
-    );
+    return <Loader />;
 }
