@@ -4,9 +4,10 @@ import ContainerOverlay from "@/components/overlays/container-overlay";
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeOff } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const Hero = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const [muted, setMuted] = useState(true);
 
@@ -17,8 +18,33 @@ const Hero = () => {
         }
     }, []);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (videoRef.current) {
+                    if (entry.isIntersecting) {
+                        videoRef.current.play();
+                    } else {
+                        videoRef.current.pause();
+                    }
+                }
+            },
+            { threshold: 0.5 },
+        );
+
+        const container = containerRef.current;
+        if (container) observer.observe(container);
+
+        return () => {
+            if (container) observer.unobserve(container);
+        };
+    }, []);
+
     return (
-        <section className="relative md:-mb-[calc(100vh-var(--spacing-nav)+2rem)] -mb-[calc(100vh-var(--spacing-nav)+5rem)]">
+        <section
+            ref={containerRef}
+            className="relative md:-mb-[calc(100vh-var(--spacing-nav)+2rem)] -mb-[calc(100vh-var(--spacing-nav)+5rem)]"
+        >
             <div className="group sticky top-nav flex items-center-safe min-h-[calc(100vh-var(--spacing-nav))] w-full md:px-16 px-8">
                 <div className="text-background space-y-8">
                     <div className="space-y-2 ">
