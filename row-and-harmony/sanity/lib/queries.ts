@@ -19,3 +19,6 @@ export const getServicesIdsQuery = defineQuery(`*[_type == 'service']{_id}`);
 export const getServicesQuery = defineQuery(`*[_type == 'service']`);
 
 export const getServiceByIdQuery = defineQuery(`*[_type == 'service' && _id == $id]`);
+
+// Newsletter Queries
+export const getEmailQuery = defineQuery(`*[_type == 'newsLetter' && email == $email][0]{email}`);

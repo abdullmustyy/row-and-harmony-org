@@ -1,5 +1,6 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import { Toaster } from "@/components/ui/sonner";
 import { metadataBaseImage, metadataBaseUrl } from "@/lib/constants";
 import AppProviders from "@/providers";
 import { SanityLive } from "@/sanity/lib/live";
@@ -66,6 +67,7 @@ export default function RootLayout({
                     <SanityLive />
                     <Navbar />
                     {children}
+                    <Toaster />
                     <Footer className="mt-auto" />
                 </AppProviders>
             </body>
