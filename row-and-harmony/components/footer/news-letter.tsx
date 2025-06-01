@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import SectionLabel from "../section-labels/bar-label";
 import { Button } from "../ui/button";
+import CustomToast from "../ui/custom-toast";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
 
@@ -18,18 +19,43 @@ const NewsLetter = () => {
     const form = useForm<FormType>({
         resolver: zodResolver(NewsletterSchema),
     });
+    const {
+        control,
+        formState: { errors, isSubmitting },
+        reset,
+    } = form;
 
-    const handleSubmit = useCallback(async (values: FormType) => {
-        const { email } = values;
+    const handleSubmit = useCallback(
+        async (values: FormType) => {
+            const { email } = values;
 
-        const subscribeToNewsletterResponse = await subscribeToNewsletter(email);
+            const subscribeToNewsletterResponse = await subscribeToNewsletter(email);
 
-        if (subscribeToNewsletterResponse.success) {
-            toast.success(subscribeToNewsletterResponse.message);
-        } else {
-            toast.error(subscribeToNewsletterResponse.message);
-        }
-    }, []);
+            if (subscribeToNewsletterResponse.success) {
+                toast(
+                    <CustomToast
+                        {...{
+                            type: "success",
+                            heading: "Subscription Successful",
+                            description: subscribeToNewsletterResponse.message,
+                        }}
+                    />,
+                );
+                reset({ email: "" });
+            } else {
+                toast(
+                    <CustomToast
+                        {...{
+                            type: "error",
+                            heading: "Subscription Failed",
+                            description: subscribeToNewsletterResponse.message,
+                        }}
+                    />,
+                );
+            }
+        },
+        [reset],
+    );
 
     return (
         <div className="flex flex-col gap-y-6">
@@ -47,7 +73,7 @@ const NewsLetter = () => {
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(handleSubmit)} className="w-full">
                         <FormField
-                            control={form.control}
+                            control={control}
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
@@ -60,11 +86,13 @@ const NewsLetter = () => {
                                             />
                                         </FormControl>
                                         <Button
+                                            disabled={isSubmitting}
+                                            isLoading={isSubmitting}
                                             className={cn(
-                                                "bg-accent hover:bg-primary border-y border-r border-accent/60 peer-focus-visible:border-accent/100 h-11 transition-colors duration-500 ease-1",
+                                                "bg-accent hover:bg-primary border-y border-r border-accent/60 peer-focus-visible:border-accent/100 size-11 transition-colors duration-500 ease-1",
                                                 {
                                                     "bg-destructive hover:bg-destructive border-destructive peer-focus-visible:border-destructive":
-                                                        form.formState.errors.email,
+                                                        errors.email,
                                                 },
                                             )}
                                         >

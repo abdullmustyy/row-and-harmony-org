@@ -9,7 +9,7 @@ export async function subscribeToNewsletter(email: string) {
         if (!email) {
             return {
                 success: false,
-                message: "Email is required",
+                message: "Please provide a valid email address.",
             };
         }
 
@@ -19,7 +19,7 @@ export async function subscribeToNewsletter(email: string) {
         if (data?.email) {
             return {
                 success: false,
-                message: "Email already subscribed to the newsletter",
+                message: "This email address is already subscribed to our newsletter.",
             };
         }
 
@@ -33,13 +33,13 @@ export async function subscribeToNewsletter(email: string) {
 
         return {
             success: true,
-            message: `Successfully subscribed ${response.email} to the newsletter, thank you!`,
+            message: `Thank you for subscribing! We've added ${response.email} to our newsletter.`,
         };
     } catch (error) {
         console.error("Error subscribing to newsletter:", error);
         return {
             success: false,
-            message: "Failed to subscribe to the newsletter, please try again later",
+            message: "Oops! Something went wrong while processing your subscription. Please try again shortly.",
         };
     }
 }
