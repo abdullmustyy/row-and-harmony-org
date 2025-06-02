@@ -26,6 +26,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
                 </p>
             </div>
             <Button
+            className="w-fit h-11 mx-auto"
                 onClick={
                     // Attempt to recover by trying to re-render the segment
                     () => reset()
