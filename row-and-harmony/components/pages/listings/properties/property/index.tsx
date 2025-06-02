@@ -91,6 +91,8 @@ const PropertyPage = ({ property }: IPropertyPageProps) => {
                             <div className="text-background">
                                 <Link
                                     href={`https://wa.me/${formattedWhatsAppNumber}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="link-btn justify-center w-full gap-3 *:relative"
                                 >
                                     <WhatsAppIcon className="size-5" />
