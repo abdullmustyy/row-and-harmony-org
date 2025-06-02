@@ -48,6 +48,7 @@ export const propertyType = defineType({
                             type: "image",
                         }),
                     ],
+                    validation: (rule) => rule.required().min(4),
                 }),
             ],
         }),
@@ -63,14 +64,30 @@ export const propertyType = defineType({
                 defineField({
                     name: "name",
                     type: "string",
+                    validation: (rule) => rule.required(),
                 }),
                 defineField({
                     name: "email",
                     type: "string",
+                    validation: (rule) => rule.required(),
                 }),
                 defineField({
                     name: "phone",
                     type: "string",
+                    validation: (rule) => rule.required(),
+                }),
+                defineField({
+                    name: "whatsapp",
+                    title: "WhatsApp Number",
+                    type: "string",
+                    validation: (rule) =>
+                        rule
+                            .required()
+                            .regex(/^\+?[1-9]\d{7,14}$/, {
+                                name: "international phone number",
+                                invert: false,
+                            })
+                            .error("Please enter a valid WhatsApp number (e.g. +2348123456789)"),
                 }),
             ],
         }),

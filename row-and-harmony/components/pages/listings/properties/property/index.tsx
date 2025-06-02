@@ -1,4 +1,5 @@
 import DynamicImage from "@/components/dynamic-image";
+import WhatsAppIcon from "@/components/icons/whatsapp-icon";
 import { Button } from "@/components/ui/button";
 import { urlFor } from "@/sanity/lib/image";
 import { GetPropertyByIdQueryResult } from "@/sanity/types";
@@ -23,6 +24,7 @@ const PropertyPage = ({ property }: IPropertyPageProps) => {
                 : [],
         [property.images?.showcase],
     );
+    const formattedWhatsAppNumber = property.contactInfo?.whatsapp?.replace("+", "");
 
     return (
         <main className="relative isolate mt-nav">
@@ -78,18 +80,28 @@ const PropertyPage = ({ property }: IPropertyPageProps) => {
                         </div>
                         <div className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-2 gap-3">
                             <div className="text-background">
-                                <Link href="" className="link-btn justify-center w-full gap-3 *:relative">
+                                <Link
+                                    href={`tel:${property.contactInfo?.phone}`}
+                                    className="link-btn justify-center w-full gap-3 *:relative"
+                                >
                                     <Phone className="size-4" />
                                     <span>Make a call</span>
                                 </Link>
                             </div>
                             <div className="text-background">
-                                <Link href="" className="link-btn justify-center w-full gap-3 *:relative">
+                                <Link
+                                    href={`https://wa.me/${formattedWhatsAppNumber}`}
+                                    className="link-btn justify-center w-full gap-3 *:relative"
+                                >
+                                    <WhatsAppIcon className="size-5" />
                                     <span>Send a text</span>
                                 </Link>
                             </div>
                             <div className="lg:col-span-2 md:col-span-1 col-span-2 text-background">
-                                <Link href="" className="link-btn justify-center w-full gap-3 *:relative">
+                                <Link
+                                    href={`mailto:${property.contactInfo?.email}`}
+                                    className="link-btn justify-center w-full gap-3 *:relative"
+                                >
                                     <Mail className="size-4" />
                                     <span>Send a mail</span>
                                 </Link>

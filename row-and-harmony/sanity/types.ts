@@ -104,6 +104,7 @@ export type Property = {
     name?: string;
     email?: string;
     phone?: string;
+    whatsapp?: string;
   };
 };
 
@@ -368,6 +369,7 @@ export type GetPropertiesQueryResult = Array<{
     name?: string;
     email?: string;
     phone?: string;
+    whatsapp?: string;
   };
 }>;
 // Variable: getPropertyByIdQuery
@@ -414,6 +416,7 @@ export type GetPropertyByIdQueryResult = Array<{
     name?: string;
     email?: string;
     phone?: string;
+    whatsapp?: string;
   };
 }>;
 // Variable: getJobsQuery
