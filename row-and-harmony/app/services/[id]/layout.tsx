@@ -1,20 +1,27 @@
 import PageHeader from "@/components/page-header";
 import GetAQuote from "@/components/pages/home/sections/get-a-quote";
 import ServiceTabs from "@/components/pages/services/service/service-tabs";
+import { sanityFetch } from "@/sanity/lib/live";
+import { getServiceByIdQuery } from "@/sanity/lib/queries";
 
-const ServiceLayout = ({
+const ServiceLayout = async ({
     children,
     params,
 }: Readonly<{
     children: React.ReactNode;
     params: Promise<{ id: string }>;
 }>) => {
+    const { id } = await params;
+    const {
+        data: [service],
+    } = await sanityFetch({ query: getServiceByIdQuery, params: { id } });
+
     return (
         <main className="relative isolate">
             <PageHeader
                 {...{
-                    heading: "Our Services",
-                    paragraph: "Professional Facility Management,\n Tailored to Your Needs",
+                    heading: service.name,
+                    paragraph: service.serviceOverview?.heading,
                 }}
             />
             <section className="md:px-8 px-4 md:pt-[10vh] pt-[8vh] relative">

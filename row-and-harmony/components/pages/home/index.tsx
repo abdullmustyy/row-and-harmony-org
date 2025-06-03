@@ -1,5 +1,5 @@
 import { sanityFetch } from "@/sanity/lib/live";
-import { getClientsQuery, getServicesQuery } from "@/sanity/lib/queries";
+import { getClientsQuery, getFirstThreeServicesQuery } from "@/sanity/lib/queries";
 import GetAQuote from "./sections/get-a-quote";
 import GetInTouch from "./sections/get-in-touch";
 import Hero from "./sections/hero";
@@ -11,7 +11,7 @@ import WhyChooseUs from "./sections/why-choose-us";
 
 const HomePage = async () => {
     const { data: clients } = await sanityFetch({ query: getClientsQuery });
-    const { data: services } = await sanityFetch({ query: getServicesQuery });
+    const { data: services } = await sanityFetch({ query: getFirstThreeServicesQuery });
 
     return (
         <main className="relative isolate">

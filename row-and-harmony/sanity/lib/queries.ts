@@ -14,7 +14,7 @@ export const getJobsQuery = defineQuery(`*[_type == 'job'] | order(_createdAt de
 export const getJobByIdQuery = defineQuery(`*[_type == 'job' && _id == $id]`);
 
 // Services Queries
-export const getServicesIdsQuery = defineQuery(`*[_type == 'service']{_id}`);
+export const getFirstThreeServicesQuery = defineQuery(`*[_type == 'service'][0...3]`);
 
 export const getServicesQuery = defineQuery(`*[_type == 'service']`);
 

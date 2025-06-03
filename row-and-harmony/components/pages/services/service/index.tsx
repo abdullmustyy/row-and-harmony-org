@@ -5,7 +5,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { GetServiceByIdQueryResult } from "@/sanity/types";
 import { PortableText } from "next-sanity";
 
-interface IServicePageProps extends React.ComponentProps<"main"> {
+interface IServicePageProps extends React.ComponentProps<"div"> {
     service: GetServiceByIdQueryResult[number];
 }
 
