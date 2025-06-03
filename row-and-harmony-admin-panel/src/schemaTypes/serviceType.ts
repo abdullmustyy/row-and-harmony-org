@@ -52,6 +52,7 @@ export const serviceType = defineType({
                     validation: (rule) => rule.required(),
                 }),
             ],
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "serviceCenter",
@@ -82,6 +83,7 @@ export const serviceType = defineType({
                     validation: (rule) => rule.required(),
                 }),
             ],
+            validation: (rule) => rule.required(),
         }),
     ],
     preview: {
