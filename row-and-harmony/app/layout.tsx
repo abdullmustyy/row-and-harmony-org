@@ -10,7 +10,7 @@ import { bricolageGrotesque, recursive } from "./fonts";
 
 const title = "Row & Harmony — Facility and Property Management Company LTD";
 const description =
-    "ROW & HARMONY is an active player in the Facility management industry in the world with numerous years of experience in the Maintenance business and a robust portfolio of commercial and residential properties being managed by the company. We are committed to providing our client with personalized services.";
+    "ROW & HARMONY is a key player in the facility management industry, with years of experience and a strong portfolio of commercial and residential properties. We are dedicated to delivering personalized services to our clients.";
 
 export const metadata: Metadata = {
     metadataBase: new URL(metadataBaseUrl),
