@@ -1,3 +1,3 @@
 // Metadata constants
-export const metadataBaseUrl = "https://row-and-harmony.vercel.app";
+export const metadataBaseUrl = "https://www.rowandharmony.com";
 export const metadataBaseImage = "/images/webps/logo-opengraph.webp";
