@@ -6,7 +6,7 @@ import { EmailConfig, IEmailKeys, ISendEmail } from "./config";
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: parseInt(process.env.SMTP_PORT || "587"),
+    port: parseInt(process.env.SMTP_PORT!),
     secure: true,
     auth: {
         user: process.env.SMTP_USER,
@@ -20,7 +20,7 @@ export async function sendEmail<K extends IEmailKeys>({ args, key }: ISendEmail<
     try {
         await transporter.sendMail({
             from: `"Row & Harmony" <${process.env.SMTP_USER}>`,
-            to: "abdulmusty03@gmail.com",
+            to: "randhfacility@gmail.com",
             subject: EmailConfig[key].subject,
             html: await render(EmailConfig[key].html(args)),
         });
