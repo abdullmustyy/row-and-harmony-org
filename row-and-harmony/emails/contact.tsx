@@ -18,7 +18,7 @@ export const ContactEmail = ({ name, email, phone, subject, message }: IEmailPro
             <Preview>New contact form submission from {name}</Preview>
             <Body style={main}>
                 <Container style={container}>
-                    <Img src={`${baseUrl}/icon.png`} alt="Logo" style={{ height: 60, width: 250, marginBottom: 40 }} />
+                    <Img src={`${baseUrl}/icon.png`} alt="" style={{ height: 60, width: 80, marginBottom: 40 }} />
                     <Section>
                         <Text>
                             <strong>Name:</strong> {name}
