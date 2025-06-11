@@ -10,7 +10,8 @@
         "start": "next start",
         "lint": "next lint",
         "typegen": "sanity typegen generate",
-        "check-types": "tsc --noEmit"
+        "check-types": "tsc --noEmit",
+        "email": "email dev"
     },
     "dependencies": {
         "@hookform/resolvers": "^5.0.1",
@@ -20,6 +21,7 @@
         "@radix-ui/react-hover-card": "^1.1.7",
         "@radix-ui/react-label": "^2.1.2",
         "@radix-ui/react-slot": "^1.1.2",
+        "@react-email/components": "0.0.41",
         "@repo/lib": "workspace:*",
         "@sanity/image-url": "^1.1.0",
         "class-variance-authority": "^0.7.1",
@@ -34,8 +36,8 @@
         "next-themes": "^0.4.6",
         "plaiceholder": "^3.0.0",
         "postcss": "^8.5.3",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
         "react-hook-form": "^7.55.0",
         "sharp": "^0.34.2",
         "sonner": "^2.0.3",
@@ -52,6 +54,7 @@
         "@types/react-dom": "^19",
         "eslint": "^9",
         "eslint-config-next": "15.2.4",
+        "react-email": "4.0.16",
         "tailwindcss": "^4.1.4",
         "typescript": "^5"
     }

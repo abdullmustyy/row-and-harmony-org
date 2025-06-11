@@ -5,3 +5,5 @@ export const NewsletterSchema = z.object({
         .string({ required_error: "Email is required. Please provide a valid email address to subscribe." })
         .email("Please enter a valid email address."),
 });
+
+export type INewsletterSchema = z.infer<typeof NewsletterSchema>;

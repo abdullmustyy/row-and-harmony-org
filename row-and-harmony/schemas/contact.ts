@@ -10,3 +10,5 @@ export const ContactSchema = z.object({
     phone: z.string({ required_error: "Phone number is required. Please provide a valid contact number." }).trim(),
     message: z.string({ required_error: "Message is required. Please enter your message or inquiry." }).trim(),
 });
+
+export type IContactSchema = z.infer<typeof ContactSchema>;

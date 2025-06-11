@@ -4,13 +4,16 @@ import ControlledFieldWrapper from "@/components/controlled-fields/field-wrapper
 import OutlineLabel from "@/components/section-labels/outline-label";
 import Socials from "@/components/socials";
 import { Button } from "@/components/ui/button";
+import CustomToast from "@/components/ui/custom-toast";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { sendEmail } from "@/lib/email";
 import { ContactSchema } from "@/schemas/contact";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 type FormType = z.infer<typeof ContactSchema>;
@@ -19,14 +22,36 @@ const ContactForm = () => {
     const form = useForm<FormType>({
         resolver: zodResolver(ContactSchema),
     });
+    const {
+        formState: { isSubmitting },
+    } = form;
 
     const handleSubmit = useCallback(
-        (values: FormType) => {
-            const { email } = values;
+        async (values: FormType) => {
+            const response = await sendEmail({ key: "contact", args: values });
 
-            console.log("Email submitted:", email);
-
-            form.reset();
+            if (response.success) {
+                toast(
+                    <CustomToast
+                        {...{
+                            type: "success",
+                            heading: "Message Sent",
+                            description: response.message,
+                        }}
+                    />,
+                );
+                form.reset();
+            } else {
+                toast(
+                    <CustomToast
+                        {...{
+                            type: "error",
+                            heading: "Message Failed",
+                            description: response.message,
+                        }}
+                    />,
+                );
+            }
         },
         [form],
     );
@@ -57,7 +82,7 @@ const ContactForm = () => {
                                     render={({ field }) => (
                                         <Input
                                             {...field}
-                                            placeholder="Enter name"
+                                            placeholder="Eg: John Doe"
                                             className="rounded-none h-12 focus-visible:ring-0 focus-visible:border-primary shadow-none transition-colors duration-500 ease-1"
                                         />
                                     )}
@@ -68,7 +93,7 @@ const ContactForm = () => {
                                     render={({ field }) => (
                                         <Input
                                             {...field}
-                                            placeholder="Enter email"
+                                            placeholder="Eg: johndoe@email.com"
                                             className="rounded-none h-12 focus-visible:ring-0 focus-visible:border-primary shadow-none transition-colors duration-500 ease-1"
                                         />
                                     )}
@@ -79,7 +104,7 @@ const ContactForm = () => {
                                     render={({ field }) => (
                                         <Input
                                             {...field}
-                                            placeholder="Enter subject"
+                                            placeholder="Eg: Request for cleaning services"
                                             className="rounded-none h-12 focus-visible:ring-0 focus-visible:border-primary shadow-none transition-colors duration-500 ease-1"
                                         />
                                     )}
@@ -91,7 +116,7 @@ const ContactForm = () => {
                                         <Input
                                             {...field}
                                             type="tel"
-                                            placeholder="Enter phone number"
+                                            placeholder="Eg: +1 234 567 8901"
                                             className="rounded-none h-12 focus-visible:ring-0 focus-visible:border-primary shadow-none transition-colors duration-500 ease-1"
                                         />
                                     )}
@@ -103,13 +128,13 @@ const ContactForm = () => {
                                     render={({ field }) => (
                                         <Textarea
                                             {...field}
-                                            placeholder="Enter message"
+                                            placeholder="Eg: Hi, I would like to inquire about your facility management services. Please get back to me."
                                             className="rounded-none h-36 focus-visible:ring-0 focus-visible:border-primary shadow-none transition-colors duration-500 ease-1"
                                         />
                                     )}
                                 />
                             </div>
-                            <Button className="link-btn h-12">
+                            <Button disabled={isSubmitting} isLoading={isSubmitting} className="link-btn h-12">
                                 <span className="relative">Send Message</span>
                             </Button>
                         </form>
