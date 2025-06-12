@@ -5,16 +5,16 @@ import GetAQuote from "../home/sections/get-a-quote";
 const ContactDetails = () => {
     return (
         <section className="mt-[20vh] flex flex-col items-center relative">
-            <div className="md:w-4/5 w-9/10 mx-auto flex lg:flex-row flex-col justify-between gap-4 bg-secondary lg:p-16 p-8 absolute top-0 -translate-y-1/2">
+            <div className="md:w-4/5 w-9/10 mx-auto flex flex-wrap justify-between md:gap-8 gap-4 bg-secondary lg:p-16 p-8 absolute top-0 -translate-y-1/2">
                 {contactDetails.map(({ Icon, heading, href, label, name }, index) => (
                     <div key={name + index} className="group flex gap-3 items-center">
                         <div className="size-16 shrink-0 bg-primary group-hover:bg-accent grid place-content-center transition-colors duration-500 ease-1">
-                            <Icon className="size-8 stroke-background" />
+                            <Icon className="size-8 text-background" />
                         </div>
-                        <div className="overflow-hidden w-full">
+                        <div className="w-full">
                             <h5 className="font-primary text-primary text-fluid-base font-semibold">{heading}</h5>
                             <Link href={href} title={label} className="before-hover-transform-link">
-                                <span className="truncate">{label}</span>
+                                <span>{label}</span>
                             </Link>
                         </div>
                     </div>

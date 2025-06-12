@@ -1,6 +1,7 @@
 import ContainerOverlay from "@/components/overlays/container-overlay";
 import SectionLabel from "@/components/section-labels/bar-label";
 import { whoWeAreServices } from "@/lib/data";
+import CleanersAtWorkImg from "@/public/images/webps/cleaners-at-work.webp";
 import WhoWeAreImg from "@/public/images/webps/who-we-are.webp";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +22,7 @@ const WhoWeAre = () => {
                             </span>
                         </div>
                         <figure className="bg-background md:block hidden lg:size-80 size-60 p-4 absolute bottom-0 lg:left-8 lg:right-auto right-8 translate-y-3/20">
-                            <Image src={WhoWeAreImg} alt="Who We Are" className="object-cover size-full" />
+                            <Image src={CleanersAtWorkImg} alt="Cleaners at work" className="object-cover size-full" />
                         </figure>
                     </figure>
                 </div>

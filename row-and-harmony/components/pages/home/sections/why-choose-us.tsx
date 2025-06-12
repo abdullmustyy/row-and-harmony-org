@@ -4,8 +4,8 @@ import EmblaCarousel from "@/components/embla-carousel";
 import SectionLabel from "@/components/section-labels/bar-label";
 import WhyChooseUsSlide from "@/components/slides/why-choose-us-slide";
 import { whyChooseUs } from "@/lib/data";
+import CleanersAtWorkImg from "@/public/images/webps/cleaners-at-work.webp";
 import ElectricityMaintenence from "@/public/images/webps/electricity-maintenence.webp";
-import FacilityManagement from "@/public/images/webps/facility-management.webp";
 import WhoWeAreImg from "@/public/images/webps/who-we-are.webp";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
                 </div>
                 <div className="relative lg:w-1/2 grid justify-items-end items-center">
                     <figure className="bg-background md:size-60 size-50 p-3 absolute top-0 left-0 -translate-y-3/20">
-                        <Image src={FacilityManagement} alt="Who We Are" className="object-cover size-full" />
+                        <Image src={CleanersAtWorkImg} alt="Who We Are" className="object-cover size-full" />
                     </figure>
                     <Image src={ElectricityMaintenence} alt="" className="size-130 object-cover" />
                     <figure className="bg-background md:size-60 size-50 p-3 absolute bottom-0 left-0 translate-y-3/20">

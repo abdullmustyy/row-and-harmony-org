@@ -5,6 +5,7 @@ import LeafIcon from "@/components/icons/leaf-icon";
 import MoneyBagIcon from "@/components/icons/money-bag-icon";
 import TimeScheduleIcon from "@/components/icons/time-schedule-icon";
 import ToolsIcon from "@/components/icons/tools-icon";
+import WhatsAppIcon from "@/components/icons/whatsapp-icon";
 import Avatar1 from "@/public/images/jpgs/avatar-1.jpg";
 import Avatar2 from "@/public/images/jpgs/avatar-2.jpg";
 import Avatar3 from "@/public/images/jpgs/avatar-3.jpg";
@@ -168,6 +169,13 @@ export const contactDetails = [
         label: "randhfacility@gmail.com",
         href: "mailto:randhfacility@gmail.com",
         Icon: Mail,
+    },
+    {
+        name: "whatsapp",
+        heading: "Send a message",
+        label: "+234 813 104 5878",
+        href: "https://wa.me/message/MFGZBNO7EV22H1",
+        Icon: WhatsAppIcon,
     },
     {
         name: "address",

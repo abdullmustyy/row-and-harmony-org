@@ -116,7 +116,7 @@ const ContactForm = () => {
                                         <Input
                                             {...field}
                                             type="tel"
-                                            placeholder="Eg: +1 234 567 8901"
+                                            placeholder="Eg: 0805 845 5944"
                                             className="rounded-none h-12 focus-visible:ring-0 focus-visible:border-primary shadow-none transition-colors duration-500 ease-1"
                                         />
                                     )}

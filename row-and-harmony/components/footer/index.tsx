@@ -27,7 +27,7 @@ const Footer = ({ className }: IFooterProps) => {
                     <ul className="flex flex-col gap-y-2">
                         {contactDetails.map(({ href, Icon, name, label }, index) => (
                             <Link key={name + index} href={href} className="flex items-center gap-x-2 w-fit">
-                                <Icon className="size-4 text-background fill-accent" />
+                                <Icon className="size-4 text-accent" />
                                 <li className="relative before-hover-transform-link">{label}</li>
                             </Link>
                         ))}
