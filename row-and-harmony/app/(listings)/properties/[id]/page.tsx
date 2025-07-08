@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { sanityFetch } from "@/sanity/lib/live";
 import { getPropertiesQuery, getPropertyByIdQuery } from "@/sanity/lib/queries";
+import { formatPriceNaira } from "@repo/lib/utils";
 import { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -11,7 +12,11 @@ export async function generateStaticParams() {
     return properties.map((property) => ({ id: property._id }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}): Promise<Metadata> {
     const { id } = await params;
     const {
         data: [property],
@@ -19,13 +24,15 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
     return {
         title: property.title,
-        description: property.description,
+        description: `Discover the ${property.title}, available for ${property.type}. Priced at ${formatPriceNaira(property.price!)}. Contact us for more details or to schedule a viewing.`,
         openGraph: {
             title: property.title,
-            description: property.description,
+            description: `Discover the ${property.title}, available for ${property.type}. Priced at ${formatPriceNaira(property.price!)}. Contact us for more details or to schedule a viewing.`,
             images: [
                 {
-                    url: property.images?.display ? urlFor(property.images.display).url() : "",
+                    url: property.images?.display
+                        ? urlFor(property.images.display).url()
+                        : "",
                     alt: property.title,
                 },
             ],
