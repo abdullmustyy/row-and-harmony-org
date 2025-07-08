@@ -39,7 +39,7 @@ const Footer = ({ className }: IFooterProps) => {
                     </SectionLabel>
                     <ul className="flex flex-col list-disc marker:text-accent pl-3 gap-y-2">
                         {navLinks.map(({ name, href }, index) =>
-                            index === 2 ? (
+                            index === 1 ? (
                                 <Fragment key={name + index}>
                                     <Link
                                         key={name + index}
