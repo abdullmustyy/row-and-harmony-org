@@ -31,7 +31,8 @@ export const propertyType = defineType({
         }),
         defineField({
             name: "description",
-            type: "text",
+            type: "array",
+            of: [{ type: "block" }],
             validation: (rule) => rule.required(),
         }),
         defineField({
