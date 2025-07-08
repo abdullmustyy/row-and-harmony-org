@@ -38,7 +38,11 @@ export const propertyType = defineType({
             name: "images",
             type: "object",
             fields: [
-                defineField({ name: "display", type: "image", validation: (rule) => rule.required() }),
+                defineField({
+                    name: "display",
+                    type: "image",
+                    validation: (rule) => rule.required(),
+                }),
                 defineField({
                     name: "showcase",
                     type: "array",
@@ -51,6 +55,7 @@ export const propertyType = defineType({
                     validation: (rule) => rule.required().min(4),
                 }),
             ],
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "location",
@@ -87,7 +92,9 @@ export const propertyType = defineType({
                                 name: "international phone number",
                                 invert: false,
                             })
-                            .error("Please enter a valid WhatsApp number (e.g. +2348123456789)"),
+                            .error(
+                                "Please enter a valid WhatsApp number (e.g. +2348123456789)",
+                            ),
                 }),
             ],
         }),
@@ -101,7 +108,10 @@ export const propertyType = defineType({
         },
         prepare: ({ title, type, media, price }) => {
             const formattedPrice = price ? formatPriceNaira(price) : undefined;
-            const subtitle = type && formattedPrice ? `${capitalize(type)} - ${formattedPrice}` : undefined;
+            const subtitle =
+                type && formattedPrice
+                    ? `${capitalize(type)} - ${formattedPrice}`
+                    : undefined;
 
             return { title, subtitle, media };
         },

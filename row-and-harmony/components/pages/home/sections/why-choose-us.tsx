@@ -38,7 +38,7 @@ const WhyChooseUs = () => {
                     />
                 </div>
                 <div className="relative lg:w-1/2 grid justify-items-end items-center">
-                    <figure className="bg-background md:size-60 size-50 p-3 absolute top-0 left-0 -translate-y-3/20">
+                    <figure className="bg-background md:size-60 size-50 p-3 absolute top-0 md:left-0 right-0 md:-translate-y-3/20 -translate-y-1/2">
                         <Image src={CleanersAtWorkImg} alt="Who We Are" className="object-cover size-full" />
                     </figure>
                     <Image src={ElectricityMaintenence} alt="" className="size-130 object-cover" />

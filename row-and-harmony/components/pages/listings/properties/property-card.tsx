@@ -13,11 +13,11 @@ const PropertyCard = ({ className, children, property: { _id, location, price, t
         <div className={cn("flex flex-col", className)}>
             {children}
             <Link href={`/properties/${_id}`} className="group">
-                <div className="pt-3">
+                <div className="pt-3 space-y-2">
                     <h5 className="font-primary font-semibold">{title}</h5>
                     <div className="flex items-center gap-1">
                         <MapPin className="size-4 stroke-[1.5] stroke-accent" />
-                        <span>{location}</span>
+                        <span className="truncate">{location}</span>
                     </div>
                     <div className="flex items-center justify-between mt-1">
                         <span className="font-semibold">{formatPriceNaira(price!)}</span>
