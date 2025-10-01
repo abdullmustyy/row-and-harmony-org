@@ -100,7 +100,7 @@ const PropertyPage = ({ property }: IPropertyPageProps) => {
                         </PortableTextContainer>
                     </div>
 
-                    <aside className="md:w-1/3 w-full grid gap-6">
+                    <aside className="md:w-1/3 w-full grid gap-6 bg-secondary px-6 py-12 sticky top-[calc(var(--spacing-nav)+(var(--spacing)*8))]">
                         <div>
                             <h4 className="font-semibold text-fluid-base">
                                 Get in touch

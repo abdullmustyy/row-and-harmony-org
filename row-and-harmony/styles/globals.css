@@ -190,10 +190,11 @@
   body {
     @apply bg-background text-foreground;
   }
+}
 
-  img {
-    @apply pointer-events-none;
-  }
+@utility container {
+  margin-inline: auto;
+  /* padding-inline: 2rem; */
 }
 
 @utility clip-full {
