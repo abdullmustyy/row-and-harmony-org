@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     /* config options here */
-    allowedDevOrigins: ["*pinggy.link"],
+    allowedDevOrigins: ["*.ngrok-free.app"],
     images: {
         remotePatterns: [
             {

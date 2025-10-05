@@ -6,7 +6,7 @@ const JobLayout = ({
     children: React.ReactNode;
 }>) => {
     return (
-        <main className="relative isolate mt-nav flex md:px-8 px-4 md:h-[calc(100vh-var(--spacing-nav))]">
+        <main className="container relative isolate mt-nav flex md:h-[calc(100vh-var(--spacing-nav))]">
             <JobTabs />
             {children}
         </main>

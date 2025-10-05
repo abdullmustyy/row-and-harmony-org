@@ -194,7 +194,7 @@
 
 @utility container {
   margin-inline: auto;
-  /* padding-inline: 2rem; */
+  @apply md:px-0 px-4;
 }
 
 @utility clip-full {

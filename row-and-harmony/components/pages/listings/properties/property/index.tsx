@@ -38,8 +38,8 @@ const PropertyPage = ({ property }: IPropertyPageProps) => {
     );
 
     return (
-        <main className="relative isolate mt-nav">
-            <section className="flex flex-col md:px-8 px-4 py-[5vh]">
+        <main className="container relative isolate mt-nav">
+            <section className="flex flex-col py-[5vh]">
                 <div className="flex items-center md:gap-8 gap-4 pl-2">
                     <Link href="/properties" title="Back to properties">
                         <MoveLeft className="md:size-6 size-5 stroke-[2.5] stroke-primary hover:-translate-x-1 transition-transform duration-300 ease-1" />

@@ -61,7 +61,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`${recursive.variable} ${bricolageGrotesque.variable} hide-scrollbar`}>
+        <html
+            lang="en"
+            className={`${recursive.variable} ${bricolageGrotesque.variable} hide-scrollbar`}
+        >
             <body className="min-h-screen flex flex-col font-base select-none antialiased">
                 <AppProviders>
                     <SanityLive />

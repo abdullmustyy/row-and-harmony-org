@@ -12,18 +12,31 @@ interface IJobsPageProps extends React.ComponentProps<"main"> {
 const JobsPage = ({ jobs }: IJobsPageProps) => {
     return (
         <main className="relative isolate mt-nav">
-            <section className="grid md:grid-cols-2 gap-5 md:px-8 px-4 pt-5 pb-[5vh]">
+            <section className="container grid md:grid-cols-2 gap-5 pt-5 pb-[5vh]">
                 {jobs.map((job) => (
                     <Link key={job._id} href={`/jobs/${job._id}`}>
-                        <JobCard job={job} className="group flex flex-col border hover:scale-[100.5%]">
+                        <JobCard
+                            job={job}
+                            className="group flex flex-col border hover:scale-[100.5%]"
+                        >
                             <div className="p-4 flex items-start gap-4">
                                 <div className="grid place-content-center size-15 p-1 shrink-0 border">
-                                    <Image src={Icon} alt="Job Icon" className="size-full object-cover" />
+                                    <Image
+                                        src={Icon}
+                                        alt="Job Icon"
+                                        className="size-full object-cover"
+                                    />
                                 </div>
-                                <p className="line-clamp-5">{job.jobDetails?.jobSummary}</p>
+                                <p className="line-clamp-5">
+                                    {job.jobDetails?.jobSummary}
+                                </p>
                             </div>
                             <div className="bg-accent/50 px-4 py-2 mt-auto">
-                                <span>{capitalize(formatRelativeDate(job._createdAt))}</span>
+                                <span>
+                                    {capitalize(
+                                        formatRelativeDate(job._createdAt),
+                                    )}
+                                </span>
                             </div>
                         </JobCard>
                     </Link>
