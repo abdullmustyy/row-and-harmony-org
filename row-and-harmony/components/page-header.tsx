@@ -11,7 +11,7 @@ interface IPageHeaderProps extends React.ComponentProps<"section"> {
 const PageHeader = ({ className, heading, paragraph }: IPageHeaderProps) => {
     return (
         <section className={cn("mt-nav relative", className)}>
-            <div className="flex items-center justify-center min-h-[50vh] mx-auto md:w-2/3 w-full md:px-0 px-4">
+            <div className="flex items-center justify-center min-h-[50vh] md:mx-auto md:w-2/3 w-auto md:px-0 px-4">
                 <div className="text-background space-y-4 text-center">
                     <h1 className="text-fluid-5xl font-primary font-semibold">{heading}</h1>
                     <p className="text-fluid-base whitespace-pre-line">{paragraph}</p>
