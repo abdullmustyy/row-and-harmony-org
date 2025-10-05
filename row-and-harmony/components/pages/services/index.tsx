@@ -17,7 +17,7 @@ const ServicesPage = ({ services }: IServicesPageProps) => {
                 }}
             />
 
-            <section className="md:px-8 px-4 md:pt-[10vh] pt-[8vh] relative">
+            <section className="container md:pt-[10vh] pt-[8vh] relative">
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-12 gap-8">
                     {services.map((service) => (
                         <ServiceCard key={service._id} {...{ service }} />

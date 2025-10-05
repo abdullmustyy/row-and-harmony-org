@@ -57,7 +57,7 @@ const ContactForm = () => {
     );
 
     return (
-        <section className="md:px-8 px-4 md:py-[10vh] py-[8vh] relative">
+        <section className="container md:py-[10vh] py-[8vh] relative">
             <div className="flex lg:flex-row flex-col items-start lg:gap-16 gap-8">
                 <div className="lg:w-5/12">
                     <OutlineLabel label="Contact" text="— get in touch" className="lg:mb-8 mb-6" />

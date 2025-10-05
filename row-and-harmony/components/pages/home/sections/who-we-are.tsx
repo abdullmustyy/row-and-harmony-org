@@ -8,8 +8,8 @@ import Link from "next/link";
 
 const WhoWeAre = () => {
     return (
-        <section className="bg-background md:px-8 px-4 md:pt-[15vh] pt-[8vh] md:pb-[10vh] pb-[8vh] relative">
-            <div className="flex lg:flex-row flex-col">
+        <section className="bg-background md:pt-[15vh] pt-[8vh] md:pb-[10vh] pb-[8vh] relative">
+            <div className="container flex lg:flex-row flex-col">
                 <div className="lg:w-1/2">
                     <div className="h-full lg:-mr-48 relative">
                         <Image
